@@ -1,3 +1,5 @@
+const { GITHUB_REPOSITORY } = require('./constants');
+
 function formatVulnerabilityAlerts(data) {
   const { repository } = data;
 
@@ -22,6 +24,14 @@ function formatVulnerabilityAlerts(data) {
   });
 }
 
+function getIntroMsg({ numberOfVulnerabilities, githubRepo = GITHUB_REPOSITORY }) {
+  if (numberOfVulnerabilities === 1)
+    return `There is 1 security vulnerability that needs to be addressed for the repo *${githubRepo}*.`;
+
+  return `There are ${numberOfVulnerabilities} vulnerabilities that still need to be addressed for the repo *${githubRepo}*.`;
+}
+
 module.exports = {
   formatVulnerabilityAlerts,
+  getIntroMsg,
 };

@@ -1,13 +1,5 @@
-const { GITHUB_REPOSITORY } = require('./constants.js');
 const { getSecurityVulnerabilities, postSlackMsg } = require('./api.js');
-const { formatVulnerabilityAlerts } = require('./helpers.js');
-
-function getIntroMsg(numberOfVulnerabilities) {
-  if (numberOfVulnerabilities === 1)
-    return `There is 1 security vulnerability that needs to be addressed for the repo *${GITHUB_REPOSITORY}*.`;
-
-  return `There are ${numberOfVulnerabilities} vulnerabilities that still need to be addressed for the repo *${GITHUB_REPOSITORY}*.`;
-}
+const { formatVulnerabilityAlerts, getIntroMsg } = require('./helpers.js');
 
 async function start() {
   const { data } = await getSecurityVulnerabilities();

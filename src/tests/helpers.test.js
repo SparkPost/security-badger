@@ -1,4 +1,4 @@
-const { formatVulnerabilityAlerts } = require('../helpers');
+const { formatVulnerabilityAlerts, getIntroMsg } = require('../helpers');
 
 const VULNERABILITY_ALERTS_FIXTURE = {
   repository: {
@@ -94,6 +94,24 @@ describe('helpers', () => {
       const result = formatVulnerabilityAlerts({ repository: { something: 'else' } });
 
       expect(result).toEqual([]);
+    });
+  });
+
+  describe('getIntroMsg', () => {
+    it('returns an intro message according to the number of passed-in vulnerabilities and the GitHub repository', () => {
+      const result = getIntroMsg({ numberOfVulnerabilities: 3, githubRepo: 'SparkPost/2web2ui' });
+
+      expect(result).toBe(
+        `There are 3 vulnerabilities that still need to be addressed for the repo *SparkPost/2web2ui*.`,
+      );
+    });
+
+    it('returns a different message when there is a single vulnerability', () => {
+      const result = getIntroMsg({ numberOfVulnerabilities: 1, githubRepo: 'SparkPost/2web2ui' });
+
+      expect(result).toBe(
+        'There is 1 security vulnerability that needs to be addressed for the repo *SparkPost/2web2ui*.',
+      );
     });
   });
 });
