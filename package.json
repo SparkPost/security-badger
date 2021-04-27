@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/nicklemmon/security-badger#readme",
   "dependencies": {
-    "axios": "^0.21.0"
+    "axios": "^0.21.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.23",
