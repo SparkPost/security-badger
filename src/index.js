@@ -1,22 +1,22 @@
-const { GITHUB_REPOSITORY } = require('./constants.js')
-const { getSecurityVulnerabilities, postSlackMsg } = require('./api.js')
-const { formatVulnerabilityAlerts } = require('./helpers.js')
+const { GITHUB_REPOSITORY } = require('./constants.js');
+const { getSecurityVulnerabilities, postSlackMsg } = require('./api.js');
+const { formatVulnerabilityAlerts } = require('./helpers.js');
 
 function getIntroMsg(numberOfVulnerabilities) {
   if (numberOfVulnerabilities === 1)
-    return `There is 1 security vulnerability that needs to be addressed for the repo *${GITHUB_REPOSITORY}*.`
+    return `There is 1 security vulnerability that needs to be addressed for the repo *${GITHUB_REPOSITORY}*.`;
 
-  return `There are ${numberOfVulnerabilities} vulnerabilities that still need to be addressed for the repo *${GITHUB_REPOSITORY}*.`
+  return `There are ${numberOfVulnerabilities} vulnerabilities that still need to be addressed for the repo *${GITHUB_REPOSITORY}*.`;
 }
 
 async function start() {
-  const { data } = await getSecurityVulnerabilities()
-  const vulnerabilityAlerts = formatVulnerabilityAlerts(data)
+  const { data } = await getSecurityVulnerabilities();
+  const vulnerabilityAlerts = formatVulnerabilityAlerts(data);
 
-  if (!vulnerabilityAlerts) return console.log('No security vulnerabilities found.')
+  if (!vulnerabilityAlerts) return console.log('No security vulnerabilities found.');
 
   if (vulnerabilityAlerts.length > 0) {
-    const introMsg = getIntroMsg(vulnerabilityAlerts.length)
+    const introMsg = getIntroMsg(vulnerabilityAlerts.length);
 
     await postSlackMsg({
       blocks: [
@@ -28,14 +28,14 @@ async function start() {
           },
         },
         ...[].concat(
-          ...vulnerabilityAlerts.map(alert => {
-            const { permalink, summary, severity, versionRange } = alert
+          ...vulnerabilityAlerts.map((alert) => {
+            const { permalink, summary, severity, versionRange } = alert;
             const summaryContent = permalink
               ? `*<${permalink}|:rotating_light: ${summary}>*`
-              : `*:rotating_light: ${summary}*`
+              : `*:rotating_light: ${summary}*`;
             const contextContent = versionRange
               ? `*${severity}* severity vulnerability within version range ${versionRange}.`
-              : `*${severity}* vulnerability.`
+              : `*${severity}* vulnerability.`;
 
             return [
               {
@@ -57,12 +57,12 @@ async function start() {
                   },
                 ],
               },
-            ]
+            ];
           }),
         ),
       ],
-    })
+    });
   }
 }
 
-start()
+start();
