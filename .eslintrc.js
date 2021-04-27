@@ -23,4 +23,4 @@ module.exports = {
     camelcase: 'off',
     'no-undef': 'error',
   },
-}
+};
