@@ -1,0 +1,17 @@
+name: Test and Build
+
+on: [pull_request]
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm run test-ci
+      - name: Build
+        run: npm run build
