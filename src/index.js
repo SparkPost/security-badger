@@ -13,56 +13,55 @@ async function start() {
   const { data } = await getSecurityVulnerabilities();
   const vulnerabilityAlerts = formatVulnerabilityAlerts(data);
 
-  if (!vulnerabilityAlerts) return console.log('No security vulnerabilities found.');
+  if (Boolean(vulnerabilityAlerts) && vulnerabilityAlerts.length === 0)
+    return console.log('No security vulnerabilities found.');
 
-  if (vulnerabilityAlerts.length > 0) {
-    const introMsg = getIntroMsg(vulnerabilityAlerts.length);
+  const introMsg = getIntroMsg(vulnerabilityAlerts.length);
 
-    await postSlackMsg({
-      blocks: [
-        {
-          type: 'section',
-          text: {
-            type: 'mrkdwn',
-            text: `*A wild Security Badger appeared!* \n ${introMsg}`,
-          },
+  await postSlackMsg({
+    blocks: [
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: `*A wild Security Badger appeared!* \n ${introMsg}`,
         },
-        ...[].concat(
-          ...vulnerabilityAlerts.map((alert) => {
-            const { permalink, summary, severity, versionRange } = alert;
-            const summaryContent = permalink
-              ? `*<${permalink}|:rotating_light: ${summary}>*`
-              : `*:rotating_light: ${summary}*`;
-            const contextContent = versionRange
-              ? `*${severity}* severity vulnerability within version range ${versionRange}.`
-              : `*${severity}* vulnerability.`;
+      },
+      ...[].concat(
+        ...vulnerabilityAlerts.map((alert) => {
+          const { permalink, summary, severity, versionRange } = alert;
+          const summaryContent = permalink
+            ? `*<${permalink}|:rotating_light: ${summary}>*`
+            : `*:rotating_light: ${summary}*`;
+          const contextContent = versionRange
+            ? `*${severity}* severity vulnerability within version range ${versionRange}.`
+            : `*${severity}* vulnerability.`;
 
-            return [
-              {
-                type: 'divider',
+          return [
+            {
+              type: 'divider',
+            },
+            {
+              type: 'section',
+              text: {
+                type: 'mrkdwn',
+                text: summaryContent,
               },
-              {
-                type: 'section',
-                text: {
+            },
+            {
+              type: 'context',
+              elements: [
+                {
                   type: 'mrkdwn',
-                  text: summaryContent,
+                  text: contextContent,
                 },
-              },
-              {
-                type: 'context',
-                elements: [
-                  {
-                    type: 'mrkdwn',
-                    text: contextContent,
-                  },
-                ],
-              },
-            ];
-          }),
-        ),
-      ],
-    });
-  }
+              ],
+            },
+          ];
+        }),
+      ),
+    ],
+  });
 }
 
 start();

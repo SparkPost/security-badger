@@ -1,13 +1,11 @@
-// TODO: can't this be done within the GraphQL query itself?
-// This is really fugly as a result...
 function formatVulnerabilityAlerts(data) {
   const { repository } = data;
 
-  if (!repository) return console.log('No repository found');
+  if (!repository) throw new Error('No repository found.');
 
   const { vulnerabilityAlerts } = repository;
 
-  if (!vulnerabilityAlerts) return console.log('No vulnerability alerts found');
+  if (!vulnerabilityAlerts) return [];
 
   const { edges } = vulnerabilityAlerts;
 
