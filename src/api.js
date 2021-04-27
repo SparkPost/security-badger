@@ -6,6 +6,21 @@ const {
   SLACK_CHANNEL,
   SLACK_WEBHOOK_URL,
 } = require('./constants.js');
+const { securityVulnerabilityQuery } = require('./queries.js');
+
+/**
+ * @description returns structured query data derived from the GitHub repo string
+ * @param {string} githubRepo - GitHub repo string, e.g. 'SparkPost/2web2ui'
+ * @returns {Object}
+ */
+function toQueryFriendly(githubRepo) {
+  const [owner, name] = githubRepo.split('/');
+
+  return {
+    owner: owner.toLowerCase(),
+    name: name.toLowerCase(),
+  };
+}
 
 function getSecurityVulnerabilities({
   githubRepo = GITHUB_REPOSITORY,
@@ -15,34 +30,8 @@ function getSecurityVulnerabilities({
 
   if (!githubToken) throw new Error('No `githubToken` supplied - GitHub data cannot be retrieved.');
 
-  const [owner, name] = githubRepo.split('/');
-  const query = `query {
-    repository(owner: "${owner.toLowerCase()}", name: "${name.toLowerCase()}") {
-      vulnerabilityAlerts(first: 99) {
-        edges {
-          node {
-            securityAdvisory {
-              permalink
-              summary
-              severity
-              publishedAt
-              vulnerabilities(first: 99) {
-              	edges {
-                  node {
-                    package {
-                      name
-                    }
-                    vulnerableVersionRange
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }`;
-  console.log(query);
+  const { owner, name } = toQueryFriendly(githubRepo);
+  const query = securityVulnerabilityQuery({ owner, name });
 
   return axios({
     url: GITHUB_API_URL,
