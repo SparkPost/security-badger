@@ -65,7 +65,9 @@ function postSlackMsg({
       text,
       blocks,
     },
-  }).catch((err) => console.log(err));
+  })
+    .then(({ data }) => data)
+    .catch((err) => console.log(err));
 }
 
 module.exports = {
