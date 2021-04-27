@@ -6,8 +6,6 @@ const { securityVulnerabilityQuery } = require('../queries');
 describe('api', () => {
   describe('getSecurityVulnerabilities', () => {
     it('throws an error if no `githubRepo` is passed', () => {
-      process.env.GITHUB_REPOSITORY = undefined;
-
       const result = () =>
         getSecurityVulnerabilities({ githubRepo: undefined, githubToken: 'my-fake-github-token' });
 

@@ -1,11 +1,5 @@
 const axios = require('axios');
-const {
-  GITHUB_API_URL,
-  GITHUB_REPOSITORY,
-  GITHUB_TOKEN,
-  SLACK_CHANNEL,
-  SLACK_WEBHOOK_URL,
-} = require('./constants.js');
+const { GITHUB_API_URL, SLACK_CHANNEL, SLACK_WEBHOOK_URL } = require('./constants.js');
 const { securityVulnerabilityQuery } = require('./queries.js');
 
 /**
@@ -22,10 +16,7 @@ function toQueryFriendly(githubRepo) {
   };
 }
 
-function getSecurityVulnerabilities({
-  githubRepo = GITHUB_REPOSITORY,
-  githubToken = GITHUB_TOKEN,
-} = {}) {
+function getSecurityVulnerabilities({ githubRepo, githubToken }) {
   if (!githubRepo) throw new Error('No `gitHubRepo` supplied - GitHub data cannot be retrieved.');
 
   if (!githubToken) throw new Error('No `githubToken` supplied - GitHub data cannot be retrieved.');
@@ -45,12 +36,7 @@ function getSecurityVulnerabilities({
     .catch((err) => console.log(err));
 }
 
-function postSlackMsg({
-  text,
-  blocks,
-  slackChannel = SLACK_CHANNEL,
-  slackWebhookUrl = SLACK_WEBHOOK_URL,
-} = {}) {
+function postSlackMsg({ text, blocks, slackChannel, slackWebhookUrl }) {
   if (!slackWebhookUrl)
     throw new Error('No `slackWebhookUrl` supplied - messages cannot be posted.');
 

@@ -1,8 +1,17 @@
+const {
+  GITHUB_REPOSITORY,
+  GITHUB_TOKEN,
+  SLACK_CHANNEL,
+  SLACK_WEBHOOK_URL,
+} = require('./constants.js');
 const { getSecurityVulnerabilities, postSlackMsg } = require('./api.js');
 const { formatVulnerabilityAlerts, getIntroMsg } = require('./helpers.js');
 
 async function start() {
-  const { data } = await getSecurityVulnerabilities();
+  const { data } = await getSecurityVulnerabilities({
+    githubRepo: GITHUB_REPOSITORY,
+    githubToken: GITHUB_TOKEN,
+  });
   const vulnerabilityAlerts = formatVulnerabilityAlerts(data);
 
   if (Boolean(vulnerabilityAlerts) && vulnerabilityAlerts.length === 0)
@@ -11,6 +20,8 @@ async function start() {
   const introMsg = getIntroMsg(vulnerabilityAlerts.length);
 
   await postSlackMsg({
+    slackChannel: SLACK_CHANNEL,
+    slackWebhookUrl: SLACK_WEBHOOK_URL,
     blocks: [
       {
         type: 'section',
