@@ -6,6 +6,9 @@ const { securityVulnerabilityQuery } = require('../queries');
 describe('api', () => {
   describe('getSecurityVulnerabilities', () => {
     it('throws an error if no `githubRepo` is passed', () => {
+      const mockRequest = jest.fn(() => Promise.resolve({}));
+      axios.mockImplementation(mockRequest);
+
       const result = () =>
         getSecurityVulnerabilities({ githubRepo: undefined, githubToken: 'my-fake-github-token' });
 
@@ -13,6 +16,9 @@ describe('api', () => {
     });
 
     it('throws an error if no `githubToken` is passed', () => {
+      const mockRequest = jest.fn(() => Promise.resolve({}));
+      axios.mockImplementation(mockRequest);
+
       const result = () =>
         getSecurityVulnerabilities({ githubRepo: 'my/fake/repo', githubToken: undefined });
 
