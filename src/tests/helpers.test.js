@@ -63,7 +63,7 @@ const VULNERABILITY_ALERTS_FIXTURE = {
 
 describe('helpers', () => {
   describe('formatVulnerabilityAlerts', () => {
-    it('throws an error if no the data has no repository key', () => {
+    it('throws an error if no the data has no `repository` property', () => {
       const result = () => formatVulnerabilityAlerts({ something: 'else' });
 
       expect(result).toThrow('No repository found.');
@@ -88,6 +88,12 @@ describe('helpers', () => {
           versionRange: '>= 0.4.0, < 11.0.4',
         },
       ]);
+    });
+
+    it('returns an empty array if no `vulnerabilityAlerts` property exists on the `repository` property', () => {
+      const result = formatVulnerabilityAlerts({ repository: { something: 'else' } });
+
+      expect(result).toEqual([]);
     });
   });
 });
