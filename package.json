@@ -9,7 +9,7 @@
   "scripts": {
     "build": "ncc build ./src/index.js",
     "start": "node ./src/index.js",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "axios": "^0.21.0"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.23",
     "@zeit/ncc": "^0.22.3",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.11.0",
@@ -39,6 +40,9 @@
     "jest": "^26.6.3",
     "lint-staged": "^10.3.0",
     "prettier": "2.1.1"
+  },
+  "devDependenciesComments": {
+    "@types/jest": "Required to enable intellisense in VSCode for global Jest methods"
   },
   "husky": {
     "hooks": {
