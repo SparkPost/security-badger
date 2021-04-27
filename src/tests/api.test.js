@@ -2,7 +2,6 @@ const axios = require('axios');
 const { GITHUB_API_URL } = require('../constants');
 const { getSecurityVulnerabilities, postSlackMsg } = require('../api');
 const { securityVulnerabilityQuery } = require('../queries');
-jest.mock('axios');
 
 describe('api', () => {
   describe('getSecurityVulnerabilities', () => {
