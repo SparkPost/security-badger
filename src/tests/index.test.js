@@ -35,8 +35,7 @@ describe('index', () => {
         blocks: [
           {
             text: {
-              text:
-                '*A wild Security Badger appeared!* \n There are 2 vulnerabilities that still need to be addressed for the repo *undefined*.',
+              text: `*A wild Security Badger appeared!* \n There are 2 vulnerabilities that still need to be addressed for the repo *${process.env.GITHUB_REPOSITORY}*.`, // GitHub sets this env variable dynamically - referencing the variable explicitly reduces the brittleness of the test
               type: 'mrkdwn',
             },
             type: 'section',
