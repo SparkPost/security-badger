@@ -23,7 +23,7 @@ function toQueryFriendly(githubRepo) {
  * @returns {Promise}
  */
 function getSecurityVulnerabilities({ githubRepo, githubToken }) {
-  if (!githubRepo) throw new Error('No `gitHubRepo` supplied - GitHub data cannot be retrieved.');
+  if (!githubRepo) throw new Error('No `githubRepo` supplied - GitHub data cannot be retrieved.');
 
   if (!githubToken) throw new Error('No `githubToken` supplied - GitHub data cannot be retrieved.');
 

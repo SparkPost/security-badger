@@ -1,16 +1,13 @@
-const {
-  GITHUB_REPOSITORY,
-  GITHUB_TOKEN,
-  SLACK_CHANNEL,
-  SLACK_WEBHOOK_URL,
-} = require('./constants.js');
 const { getSecurityVulnerabilities, postSlackMsg } = require('./api.js');
 const { formatVulnerabilityAlerts, getIntroMsg } = require('./helpers.js');
 
+// Allows for consumption of .env files
+require('dotenv').config();
+
 async function main() {
   const { data } = await getSecurityVulnerabilities({
-    githubRepo: GITHUB_REPOSITORY,
-    githubToken: GITHUB_TOKEN,
+    githubRepo: process.env.GITHUB_REPOSITORY,
+    githubToken: process.env.GITHUB_TOKEN,
   });
   const vulnerabilityAlerts = formatVulnerabilityAlerts(data);
 
@@ -19,12 +16,12 @@ async function main() {
 
   const introMsg = getIntroMsg({
     numberOfVulnerabilities: vulnerabilityAlerts.length,
-    githubRepo: GITHUB_REPOSITORY,
+    githubRepo: process.env.GITHUB_REPOSITORY,
   });
 
   await postSlackMsg({
-    slackChannel: SLACK_CHANNEL,
-    slackWebhookUrl: SLACK_WEBHOOK_URL,
+    slackChannel: process.env.SLACK_CHANNEL || process.env.INPUT_SLACKCHANNEL,
+    slackWebhookUrl: process.env.SLACK_WEBHOOK_URL,
     blocks: [
       {
         type: 'section',
@@ -73,6 +70,4 @@ async function main() {
 main();
 
 // Exported for testing purposes
-module.exports = {
-  main,
-};
+module.exports = { main };

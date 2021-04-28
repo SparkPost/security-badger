@@ -9,7 +9,7 @@ describe('api', () => {
       const result = () =>
         getSecurityVulnerabilities({ githubRepo: undefined, githubToken: 'my-fake-github-token' });
 
-      expect(result).toThrow('No `gitHubRepo` supplied - GitHub data cannot be retrieved.');
+      expect(result).toThrow('No `githubRepo` supplied - GitHub data cannot be retrieved.');
     });
 
     it('throws an error if no `githubToken` is passed', () => {

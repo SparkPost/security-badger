@@ -17,7 +17,10 @@ describe('index', () => {
 
       await main();
 
-      expect(mockGitHubReq).toHaveBeenCalled();
+      expect(mockGitHubReq).toHaveBeenCalledWith({
+        githubRepo: process.env.GITHUB_REPOSITORY,
+        githubToken: process.env.GITHUB_TOKEN,
+      });
       expect(slackReq).not.toHaveBeenCalled();
       expect(log).toHaveBeenCalledWith('No security vulnerabilities found.');
     });
@@ -30,7 +33,10 @@ describe('index', () => {
 
       await main();
 
-      expect(mockGitHubReq).toHaveBeenCalled();
+      expect(mockGitHubReq).toHaveBeenCalledWith({
+        githubRepo: process.env.GITHUB_REPOSITORY,
+        githubToken: process.env.GITHUB_TOKEN,
+      });
       expect(postSlackMsg).toHaveBeenCalledWith({
         blocks: [
           {
@@ -77,8 +83,8 @@ describe('index', () => {
             type: 'context',
           },
         ],
-        slackChannel: undefined,
-        slackWebhookUrl: undefined,
+        slackChannel: process.env.SLACK_CHANNEL,
+        slackWebhookUrl: process.env.SLACK_WEBHOOK_URL,
       });
     });
   });
