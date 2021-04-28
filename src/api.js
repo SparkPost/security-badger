@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { GITHUB_API_URL, SLACK_CHANNEL, SLACK_WEBHOOK_URL } = require('./constants.js');
+const { GITHUB_API_URL } = require('./constants.js');
 const { securityVulnerabilityQuery } = require('./queries.js');
 
 /**
@@ -51,9 +51,7 @@ function postSlackMsg({ text, blocks, slackChannel, slackWebhookUrl }) {
       text,
       blocks,
     },
-  })
-    .then(({ data }) => data)
-    .catch((err) => console.log(err));
+  }).catch((err) => console.log(err));
 }
 
 module.exports = {

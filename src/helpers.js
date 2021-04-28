@@ -1,4 +1,4 @@
-const { GITHUB_REPOSITORY } = require('./constants');
+const { GITHUB_REPOSITORY } = require('./constants.js');
 
 function formatVulnerabilityAlerts(data) {
   const { repository } = data;
