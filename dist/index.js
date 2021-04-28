@@ -1,13 +1,13 @@
 module.exports = /******/ (function (modules, runtime) {
   // webpackBootstrap
-  /******/ 'use strict' // The module cache
-  /******/ /******/ var installedModules = {} // The require function
+  /******/ 'use strict'; // The module cache
+  /******/ /******/ var installedModules = {}; // The require function
   /******/
   /******/ /******/ function __webpack_require__(moduleId) {
     /******/
     /******/ // Check if module is in cache
     /******/ if (installedModules[moduleId]) {
-      /******/ return installedModules[moduleId].exports
+      /******/ return installedModules[moduleId].exports;
       /******/
     } // Create a new module (and put it into the cache)
     /******/ /******/ var module = (installedModules[moduleId] = {
@@ -15,42 +15,42 @@ module.exports = /******/ (function (modules, runtime) {
       /******/ l: false,
       /******/ exports: {},
       /******/
-    }) // Execute the module function
+    }); // Execute the module function
     /******/
-    /******/ /******/ var threw = true
+    /******/ /******/ var threw = true;
     /******/ try {
-      /******/ modules[moduleId].call(module.exports, module, module.exports, __webpack_require__)
-      /******/ threw = false
+      /******/ modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+      /******/ threw = false;
       /******/
     } finally {
-      /******/ if (threw) delete installedModules[moduleId]
+      /******/ if (threw) delete installedModules[moduleId];
       /******/
     } // Flag the module as loaded
     /******/
-    /******/ /******/ module.l = true // Return the exports of the module
+    /******/ /******/ module.l = true; // Return the exports of the module
     /******/
-    /******/ /******/ return module.exports
+    /******/ /******/ return module.exports;
     /******/
   }
   /******/
   /******/
-  /******/ __webpack_require__.ab = __dirname + '/' // the startup function
+  /******/ __webpack_require__.ab = __dirname + '/'; // the startup function
   /******/
   /******/ /******/ function startup() {
     /******/ // Load entry module and return exports
-    /******/ return __webpack_require__(676)
+    /******/ return __webpack_require__(676);
     /******/
   } // run startup
   /******/
-  /******/ /******/ return startup()
+  /******/ /******/ return startup();
   /******/
 })(
   /************************************************************************/
   /******/ {
     /***/ 26: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var enhanceError = __webpack_require__(369)
+      var enhanceError = __webpack_require__(369);
 
       /**
        * Create an Error with the specified message, config, error code, request and response.
@@ -63,23 +63,23 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {Error} The created error.
        */
       module.exports = function createError(message, config, code, request, response) {
-        var error = new Error(message)
-        return enhanceError(error, config, code, request, response)
-      }
+        var error = new Error(message);
+        return enhanceError(error, config, code, request, response);
+      };
 
       /***/
     },
 
     /***/ 35: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var bind = __webpack_require__(727)
+      var bind = __webpack_require__(727);
 
       /*global toString:true*/
 
       // utils is a library of generic helper functions non-specific to axios
 
-      var toString = Object.prototype.toString
+      var toString = Object.prototype.toString;
 
       /**
        * Determine if a value is an Array
@@ -88,7 +88,7 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {boolean} True if value is an Array, otherwise false
        */
       function isArray(val) {
-        return toString.call(val) === '[object Array]'
+        return toString.call(val) === '[object Array]';
       }
 
       /**
@@ -98,7 +98,7 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {boolean} True if the value is undefined, otherwise false
        */
       function isUndefined(val) {
-        return typeof val === 'undefined'
+        return typeof val === 'undefined';
       }
 
       /**
@@ -115,7 +115,7 @@ module.exports = /******/ (function (modules, runtime) {
           !isUndefined(val.constructor) &&
           typeof val.constructor.isBuffer === 'function' &&
           val.constructor.isBuffer(val)
-        )
+        );
       }
 
       /**
@@ -125,7 +125,7 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {boolean} True if value is an ArrayBuffer, otherwise false
        */
       function isArrayBuffer(val) {
-        return toString.call(val) === '[object ArrayBuffer]'
+        return toString.call(val) === '[object ArrayBuffer]';
       }
 
       /**
@@ -135,7 +135,7 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {boolean} True if value is an FormData, otherwise false
        */
       function isFormData(val) {
-        return typeof FormData !== 'undefined' && val instanceof FormData
+        return typeof FormData !== 'undefined' && val instanceof FormData;
       }
 
       /**
@@ -145,13 +145,13 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
        */
       function isArrayBufferView(val) {
-        var result
+        var result;
         if (typeof ArrayBuffer !== 'undefined' && ArrayBuffer.isView) {
-          result = ArrayBuffer.isView(val)
+          result = ArrayBuffer.isView(val);
         } else {
-          result = val && val.buffer && val.buffer instanceof ArrayBuffer
+          result = val && val.buffer && val.buffer instanceof ArrayBuffer;
         }
-        return result
+        return result;
       }
 
       /**
@@ -161,7 +161,7 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {boolean} True if value is a String, otherwise false
        */
       function isString(val) {
-        return typeof val === 'string'
+        return typeof val === 'string';
       }
 
       /**
@@ -171,7 +171,7 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {boolean} True if value is a Number, otherwise false
        */
       function isNumber(val) {
-        return typeof val === 'number'
+        return typeof val === 'number';
       }
 
       /**
@@ -181,7 +181,7 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {boolean} True if value is an Object, otherwise false
        */
       function isObject(val) {
-        return val !== null && typeof val === 'object'
+        return val !== null && typeof val === 'object';
       }
 
       /**
@@ -192,11 +192,11 @@ module.exports = /******/ (function (modules, runtime) {
        */
       function isPlainObject(val) {
         if (toString.call(val) !== '[object Object]') {
-          return false
+          return false;
         }
 
-        var prototype = Object.getPrototypeOf(val)
-        return prototype === null || prototype === Object.prototype
+        var prototype = Object.getPrototypeOf(val);
+        return prototype === null || prototype === Object.prototype;
       }
 
       /**
@@ -206,7 +206,7 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {boolean} True if value is a Date, otherwise false
        */
       function isDate(val) {
-        return toString.call(val) === '[object Date]'
+        return toString.call(val) === '[object Date]';
       }
 
       /**
@@ -216,7 +216,7 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {boolean} True if value is a File, otherwise false
        */
       function isFile(val) {
-        return toString.call(val) === '[object File]'
+        return toString.call(val) === '[object File]';
       }
 
       /**
@@ -226,7 +226,7 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {boolean} True if value is a Blob, otherwise false
        */
       function isBlob(val) {
-        return toString.call(val) === '[object Blob]'
+        return toString.call(val) === '[object Blob]';
       }
 
       /**
@@ -236,7 +236,7 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {boolean} True if value is a Function, otherwise false
        */
       function isFunction(val) {
-        return toString.call(val) === '[object Function]'
+        return toString.call(val) === '[object Function]';
       }
 
       /**
@@ -246,7 +246,7 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {boolean} True if value is a Stream, otherwise false
        */
       function isStream(val) {
-        return isObject(val) && isFunction(val.pipe)
+        return isObject(val) && isFunction(val.pipe);
       }
 
       /**
@@ -256,7 +256,7 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {boolean} True if value is a URLSearchParams object, otherwise false
        */
       function isURLSearchParams(val) {
-        return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams
+        return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams;
       }
 
       /**
@@ -266,7 +266,7 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {String} The String freed of excess whitespace
        */
       function trim(str) {
-        return str.replace(/^\s*/, '').replace(/\s*$/, '')
+        return str.replace(/^\s*/, '').replace(/\s*$/, '');
       }
 
       /**
@@ -291,9 +291,9 @@ module.exports = /******/ (function (modules, runtime) {
             navigator.product === 'NativeScript' ||
             navigator.product === 'NS')
         ) {
-          return false
+          return false;
         }
-        return typeof window !== 'undefined' && typeof document !== 'undefined'
+        return typeof window !== 'undefined' && typeof document !== 'undefined';
       }
 
       /**
@@ -311,25 +311,25 @@ module.exports = /******/ (function (modules, runtime) {
       function forEach(obj, fn) {
         // Don't bother if no value provided
         if (obj === null || typeof obj === 'undefined') {
-          return
+          return;
         }
 
         // Force an array if not already something iterable
         if (typeof obj !== 'object') {
           /*eslint no-param-reassign:0*/
-          obj = [obj]
+          obj = [obj];
         }
 
         if (isArray(obj)) {
           // Iterate over array values
           for (var i = 0, l = obj.length; i < l; i++) {
-            fn.call(null, obj[i], i, obj)
+            fn.call(null, obj[i], i, obj);
           }
         } else {
           // Iterate over object keys
           for (var key in obj) {
             if (Object.prototype.hasOwnProperty.call(obj, key)) {
-              fn.call(null, obj[key], key, obj)
+              fn.call(null, obj[key], key, obj);
             }
           }
         }
@@ -353,23 +353,23 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {Object} Result of all merge properties
        */
       function merge(/* obj1, obj2, obj3, ... */) {
-        var result = {}
+        var result = {};
         function assignValue(val, key) {
           if (isPlainObject(result[key]) && isPlainObject(val)) {
-            result[key] = merge(result[key], val)
+            result[key] = merge(result[key], val);
           } else if (isPlainObject(val)) {
-            result[key] = merge({}, val)
+            result[key] = merge({}, val);
           } else if (isArray(val)) {
-            result[key] = val.slice()
+            result[key] = val.slice();
           } else {
-            result[key] = val
+            result[key] = val;
           }
         }
 
         for (var i = 0, l = arguments.length; i < l; i++) {
-          forEach(arguments[i], assignValue)
+          forEach(arguments[i], assignValue);
         }
-        return result
+        return result;
       }
 
       /**
@@ -383,12 +383,12 @@ module.exports = /******/ (function (modules, runtime) {
       function extend(a, b, thisArg) {
         forEach(b, function assignValue(val, key) {
           if (thisArg && typeof val === 'function') {
-            a[key] = bind(val, thisArg)
+            a[key] = bind(val, thisArg);
           } else {
-            a[key] = val
+            a[key] = val;
           }
-        })
-        return a
+        });
+        return a;
       }
 
       /**
@@ -399,9 +399,9 @@ module.exports = /******/ (function (modules, runtime) {
        */
       function stripBOM(content) {
         if (content.charCodeAt(0) === 0xfeff) {
-          content = content.slice(1)
+          content = content.slice(1);
         }
-        return content
+        return content;
       }
 
       module.exports = {
@@ -427,13 +427,137 @@ module.exports = /******/ (function (modules, runtime) {
         extend: extend,
         trim: trim,
         stripBOM: stripBOM,
-      }
+      };
 
       /***/
     },
 
     /***/ 53: /***/ function (module, __unusedexports, __webpack_require__) {
-      module.exports = __webpack_require__(352)
+      module.exports = __webpack_require__(352);
+
+      /***/
+    },
+
+    /***/ 63: /***/ function (module, __unusedexports, __webpack_require__) {
+      /* @flow */
+      /*::
+
+type DotenvParseOptions = {
+  debug?: boolean
+}
+
+// keys and values from src
+type DotenvParseOutput = { [string]: string }
+
+type DotenvConfigOptions = {
+  path?: string, // path to .env file
+  encoding?: string, // encoding of .env file
+  debug?: string // turn on logging for debugging purposes
+}
+
+type DotenvConfigOutput = {
+  parsed?: DotenvParseOutput,
+  error?: Error
+}
+
+*/
+
+      const fs = __webpack_require__(747);
+      const path = __webpack_require__(622);
+
+      function log(message /*: string */) {
+        console.log(`[dotenv][DEBUG] ${message}`);
+      }
+
+      const NEWLINE = '\n';
+      const RE_INI_KEY_VAL = /^\s*([\w.-]+)\s*=\s*(.*)?\s*$/;
+      const RE_NEWLINES = /\\n/g;
+      const NEWLINES_MATCH = /\n|\r|\r\n/;
+
+      // Parses src into an Object
+      function parse(
+        src /*: string | Buffer */,
+        options /*: ?DotenvParseOptions */,
+      ) /*: DotenvParseOutput */ {
+        const debug = Boolean(options && options.debug);
+        const obj = {};
+
+        // convert Buffers before splitting into lines and processing
+        src
+          .toString()
+          .split(NEWLINES_MATCH)
+          .forEach(function (line, idx) {
+            // matching "KEY' and 'VAL' in 'KEY=VAL'
+            const keyValueArr = line.match(RE_INI_KEY_VAL);
+            // matched?
+            if (keyValueArr != null) {
+              const key = keyValueArr[1];
+              // default undefined or missing values to empty string
+              let val = keyValueArr[2] || '';
+              const end = val.length - 1;
+              const isDoubleQuoted = val[0] === '"' && val[end] === '"';
+              const isSingleQuoted = val[0] === "'" && val[end] === "'";
+
+              // if single or double quoted, remove quotes
+              if (isSingleQuoted || isDoubleQuoted) {
+                val = val.substring(1, end);
+
+                // if double quoted, expand newlines
+                if (isDoubleQuoted) {
+                  val = val.replace(RE_NEWLINES, NEWLINE);
+                }
+              } else {
+                // remove surrounding whitespace
+                val = val.trim();
+              }
+
+              obj[key] = val;
+            } else if (debug) {
+              log(`did not match key and value when parsing line ${idx + 1}: ${line}`);
+            }
+          });
+
+        return obj;
+      }
+
+      // Populates process.env from .env file
+      function config(options /*: ?DotenvConfigOptions */) /*: DotenvConfigOutput */ {
+        let dotenvPath = path.resolve(process.cwd(), '.env');
+        let encoding /*: string */ = 'utf8';
+        let debug = false;
+
+        if (options) {
+          if (options.path != null) {
+            dotenvPath = options.path;
+          }
+          if (options.encoding != null) {
+            encoding = options.encoding;
+          }
+          if (options.debug != null) {
+            debug = true;
+          }
+        }
+
+        try {
+          // specifying an encoding returns a string instead of a buffer
+          const parsed = parse(fs.readFileSync(dotenvPath, { encoding }), { debug });
+
+          Object.keys(parsed).forEach(function (key) {
+            if (!Object.prototype.hasOwnProperty.call(process.env, key)) {
+              process.env[key] = parsed[key];
+            } else if (debug) {
+              log(`"${key}" is already defined in \`process.env\` and will not be overwritten`);
+            }
+          });
+
+          return { parsed };
+        } catch (e) {
+          return { error: e };
+        }
+      }
+
+      module.exports.config = config;
+      module.exports.parse = parse;
 
       /***/
     },
@@ -443,32 +567,32 @@ module.exports = /******/ (function (modules, runtime) {
        * Module dependencies.
        */
 
-      const tty = __webpack_require__(867)
-      const util = __webpack_require__(669)
+      const tty = __webpack_require__(867);
+      const util = __webpack_require__(669);
 
       /**
        * This is the Node.js implementation of `debug()`.
        */
 
-      exports.init = init
-      exports.log = log
-      exports.formatArgs = formatArgs
-      exports.save = save
-      exports.load = load
-      exports.useColors = useColors
+      exports.init = init;
+      exports.log = log;
+      exports.formatArgs = formatArgs;
+      exports.save = save;
+      exports.load = load;
+      exports.useColors = useColors;
       exports.destroy = util.deprecate(() => {},
-      'Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.')
+      'Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.');
 
       /**
        * Colors.
        */
 
-      exports.colors = [6, 2, 3, 4, 5, 1]
+      exports.colors = [6, 2, 3, 4, 5, 1];
 
       try {
         // Optional dependency (as in, doesn't need to be installed, NOT like optionalDependencies in package.json)
         // eslint-disable-next-line import/no-extraneous-dependencies
-        const supportsColor = __webpack_require__(247)
+        const supportsColor = __webpack_require__(247);
 
         if (supportsColor && (supportsColor.stderr || supportsColor).level >= 2) {
           exports.colors = [
@@ -548,7 +672,7 @@ module.exports = /******/ (function (modules, runtime) {
             215,
             220,
             221,
-          ]
+          ];
         }
       } catch (error) {
         // Swallow - we only care if `supports-color` is available; it doesn't have to be.
@@ -561,8 +685,8 @@ module.exports = /******/ (function (modules, runtime) {
        */
 
       exports.inspectOpts = Object.keys(process.env)
-        .filter(key => {
-          return /^debug_/i.test(key)
+        .filter((key) => {
+          return /^debug_/i.test(key);
         })
         .reduce((obj, key) => {
           // Camel-case
@@ -570,24 +694,24 @@ module.exports = /******/ (function (modules, runtime) {
             .substring(6)
             .toLowerCase()
             .replace(/_([a-z])/g, (_, k) => {
-              return k.toUpperCase()
-            })
+              return k.toUpperCase();
+            });
 
           // Coerce string value into JS value
-          let val = process.env[key]
+          let val = process.env[key];
           if (/^(yes|on|true|enabled)$/i.test(val)) {
-            val = true
+            val = true;
           } else if (/^(no|off|false|disabled)$/i.test(val)) {
-            val = false
+            val = false;
           } else if (val === 'null') {
-            val = null
+            val = null;
           } else {
-            val = Number(val)
+            val = Number(val);
           }
 
-          obj[prop] = val
-          return obj
-        }, {})
+          obj[prop] = val;
+          return obj;
+        }, {});
 
       /**
        * Is stdout a TTY? Colored output is enabled when `true`.
@@ -596,7 +720,7 @@ module.exports = /******/ (function (modules, runtime) {
       function useColors() {
         return 'colors' in exports.inspectOpts
           ? Boolean(exports.inspectOpts.colors)
-          : tty.isatty(process.stderr.fd)
+          : tty.isatty(process.stderr.fd);
       }
 
       /**
@@ -606,25 +730,25 @@ module.exports = /******/ (function (modules, runtime) {
        */
 
       function formatArgs(args) {
-        const { namespace: name, useColors } = this
+        const { namespace: name, useColors } = this;
 
         if (useColors) {
-          const c = this.color
-          const colorCode = '\u001B[3' + (c < 8 ? c : '8;5;' + c)
-          const prefix = `  ${colorCode};1m${name} \u001B[0m`
+          const c = this.color;
+          const colorCode = '\u001B[3' + (c < 8 ? c : '8;5;' + c);
+          const prefix = `  ${colorCode};1m${name} \u001B[0m`;
 
-          args[0] = prefix + args[0].split('\n').join('\n' + prefix)
-          args.push(colorCode + 'm+' + module.exports.humanize(this.diff) + '\u001B[0m')
+          args[0] = prefix + args[0].split('\n').join('\n' + prefix);
+          args.push(colorCode + 'm+' + module.exports.humanize(this.diff) + '\u001B[0m');
         } else {
-          args[0] = getDate() + name + ' ' + args[0]
+          args[0] = getDate() + name + ' ' + args[0];
         }
       }
 
       function getDate() {
         if (exports.inspectOpts.hideDate) {
-          return ''
+          return '';
         }
-        return new Date().toISOString() + ' '
+        return new Date().toISOString() + ' ';
       }
 
       /**
@@ -632,7 +756,7 @@ module.exports = /******/ (function (modules, runtime) {
        */
 
       function log(...args) {
-        return process.stderr.write(util.format(...args) + '\n')
+        return process.stderr.write(util.format(...args) + '\n');
       }
 
       /**
@@ -643,11 +767,11 @@ module.exports = /******/ (function (modules, runtime) {
        */
       function save(namespaces) {
         if (namespaces) {
-          process.env.DEBUG = namespaces
+          process.env.DEBUG = namespaces;
         } else {
           // If you set a process.env field to null or undefined, it gets cast to the
           // string 'null' or 'undefined'. Just delete instead.
-          delete process.env.DEBUG
+          delete process.env.DEBUG;
         }
       }
 
@@ -659,7 +783,7 @@ module.exports = /******/ (function (modules, runtime) {
        */
 
       function load() {
-        return process.env.DEBUG
+        return process.env.DEBUG;
       }
 
       /**
@@ -670,53 +794,69 @@ module.exports = /******/ (function (modules, runtime) {
        */
 
       function init(debug) {
-        debug.inspectOpts = {}
+        debug.inspectOpts = {};
 
-        const keys = Object.keys(exports.inspectOpts)
+        const keys = Object.keys(exports.inspectOpts);
         for (let i = 0; i < keys.length; i++) {
-          debug.inspectOpts[keys[i]] = exports.inspectOpts[keys[i]]
+          debug.inspectOpts[keys[i]] = exports.inspectOpts[keys[i]];
         }
       }
 
-      module.exports = __webpack_require__(486)(exports)
+      module.exports = __webpack_require__(486)(exports);
 
-      const { formatters } = module.exports
+      const { formatters } = module.exports;
 
       /**
        * Map %o to `util.inspect()`, all on a single line.
        */
 
       formatters.o = function (v) {
-        this.inspectOpts.colors = this.useColors
+        this.inspectOpts.colors = this.useColors;
         return util
           .inspect(v, this.inspectOpts)
           .split('\n')
-          .map(str => str.trim())
-          .join(' ')
-      }
+          .map((str) => str.trim())
+          .join(' ');
+      };
 
       /**
        * Map %O to `util.inspect()`, allowing multiple lines if needed.
        */
 
       formatters.O = function (v) {
-        this.inspectOpts.colors = this.useColors
-        return util.inspect(v, this.inspectOpts)
-      }
+        this.inspectOpts.colors = this.useColors;
+        return util.inspect(v, this.inspectOpts);
+      };
 
       /***/
     },
 
     /***/ 87: /***/ function (module) {
-      module.exports = require('os')
+      module.exports = require('os');
+
+      /***/
+    },
+
+    /***/ 104: /***/ function (module) {
+      'use strict';
+
+      /**
+       * Determines whether the payload is an error thrown by Axios
+       *
+       * @param {*} payload The value to test
+       * @returns {boolean} True if the payload is an error thrown by Axios, otherwise false
+       */
+      module.exports = function isAxiosError(payload) {
+        return typeof payload === 'object' && payload.isAxiosError === true;
+      };
 
       /***/
     },
 
     /***/ 133: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var utils = __webpack_require__(35)
+      var utils = __webpack_require__(35);
 
       function encode(val) {
         return encodeURIComponent(val)
@@ -725,7 +865,7 @@ module.exports = /******/ (function (modules, runtime) {
           .replace(/%2C/gi, ',')
           .replace(/%20/g, '+')
           .replace(/%5B/gi, '[')
-          .replace(/%5D/gi, ']')
+          .replace(/%5D/gi, ']');
       }
 
       /**
@@ -738,60 +878,60 @@ module.exports = /******/ (function (modules, runtime) {
       module.exports = function buildURL(url, params, paramsSerializer) {
         /*eslint no-param-reassign:0*/
         if (!params) {
-          return url
+          return url;
         }
 
-        var serializedParams
+        var serializedParams;
         if (paramsSerializer) {
-          serializedParams = paramsSerializer(params)
+          serializedParams = paramsSerializer(params);
         } else if (utils.isURLSearchParams(params)) {
-          serializedParams = params.toString()
+          serializedParams = params.toString();
         } else {
-          var parts = []
+          var parts = [];
 
           utils.forEach(params, function serialize(val, key) {
             if (val === null || typeof val === 'undefined') {
-              return
+              return;
             }
 
             if (utils.isArray(val)) {
-              key = key + '[]'
+              key = key + '[]';
             } else {
-              val = [val]
+              val = [val];
             }
 
             utils.forEach(val, function parseValue(v) {
               if (utils.isDate(v)) {
-                v = v.toISOString()
+                v = v.toISOString();
               } else if (utils.isObject(v)) {
-                v = JSON.stringify(v)
+                v = JSON.stringify(v);
               }
-              parts.push(encode(key) + '=' + encode(v))
-            })
-          })
+              parts.push(encode(key) + '=' + encode(v));
+            });
+          });
 
-          serializedParams = parts.join('&')
+          serializedParams = parts.join('&');
         }
 
         if (serializedParams) {
-          var hashmarkIndex = url.indexOf('#')
+          var hashmarkIndex = url.indexOf('#');
           if (hashmarkIndex !== -1) {
-            url = url.slice(0, hashmarkIndex)
+            url = url.slice(0, hashmarkIndex);
           }
 
-          url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams
+          url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
         }
 
-        return url
-      }
+        return url;
+      };
 
       /***/
     },
 
     /***/ 137: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var Cancel = __webpack_require__(826)
+      var Cancel = __webpack_require__(826);
 
       /**
        * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -801,24 +941,24 @@ module.exports = /******/ (function (modules, runtime) {
        */
       function CancelToken(executor) {
         if (typeof executor !== 'function') {
-          throw new TypeError('executor must be a function.')
+          throw new TypeError('executor must be a function.');
         }
 
-        var resolvePromise
+        var resolvePromise;
         this.promise = new Promise(function promiseExecutor(resolve) {
-          resolvePromise = resolve
-        })
+          resolvePromise = resolve;
+        });
 
-        var token = this
+        var token = this;
         executor(function cancel(message) {
           if (token.reason) {
             // Cancellation has already been requested
-            return
+            return;
           }
 
-          token.reason = new Cancel(message)
-          resolvePromise(token.reason)
-        })
+          token.reason = new Cancel(message);
+          resolvePromise(token.reason);
+        });
       }
 
       /**
@@ -826,116 +966,129 @@ module.exports = /******/ (function (modules, runtime) {
        */
       CancelToken.prototype.throwIfRequested = function throwIfRequested() {
         if (this.reason) {
-          throw this.reason
+          throw this.reason;
         }
-      }
+      };
 
       /**
        * Returns an object that contains a new `CancelToken` and a function that, when called,
        * cancels the `CancelToken`.
        */
       CancelToken.source = function source() {
-        var cancel
+        var cancel;
         var token = new CancelToken(function executor(c) {
-          cancel = c
-        })
+          cancel = c;
+        });
         return {
           token: token,
           cancel: cancel,
-        }
-      }
+        };
+      };
 
-      module.exports = CancelToken
+      module.exports = CancelToken;
 
       /***/
     },
 
-    /***/ 197: /***/ function (module) {
-      // TODO: can't this be done within the GraphQL query itself?
-      // This is really fugly as a result...
+    /***/ 197: /***/ function (module, __unusedexports, __webpack_require__) {
+      const { GITHUB_REPOSITORY } = __webpack_require__(648);
+
+      /**
+       * @description Formats raw JSON response from GitHub GraphQL API to a friendlier format for rendering Slack message blocks
+       * @param {Object} data - JSON response from GitHub GraphQL API. See `src/tests/fixtures` for example structure
+       * @returns {Array} array of Slack message-friendly vulnerability alerts
+       */
       function formatVulnerabilityAlerts(data) {
-        const { repository } = data
+        const { repository } = data;
 
-        if (!repository) return console.log('No repository found')
+        if (!repository) throw new Error('No repository found.');
 
-        const { vulnerabilityAlerts } = repository
+        const { vulnerabilityAlerts } = repository;
 
-        if (!vulnerabilityAlerts) return console.log('No vulnerability alerts found')
+        if (!vulnerabilityAlerts) return [];
 
-        const { edges } = vulnerabilityAlerts
+        const { edges } = vulnerabilityAlerts;
 
-        return edges.map(edge => {
-          const advisory = edge.node.securityAdvisory
-          const { vulnerabilities, ...rest } = advisory
-          const firstVulnerabilityNode = vulnerabilities.edges[0].node
-          const vulnerableVersionRange = firstVulnerabilityNode.vulnerableVersionRange
+        return edges.map((edge) => {
+          const advisory = edge.node.securityAdvisory;
+          const { vulnerabilities, ...rest } = advisory;
+          const firstVulnerabilityNode = vulnerabilities.edges[0].node;
+          const vulnerableVersionRange = firstVulnerabilityNode.vulnerableVersionRange;
 
           return {
             ...rest,
             versionRange: vulnerableVersionRange,
-          }
-        })
+          };
+        });
+      }
+
+      function getIntroMsg({ numberOfVulnerabilities, githubRepo = GITHUB_REPOSITORY }) {
+        if (numberOfVulnerabilities === 1)
+          return `There is 1 security vulnerability that needs to be addressed for the repo *${githubRepo}*.`;
+
+        return `There are ${numberOfVulnerabilities} vulnerabilities that still need to be addressed for the repo *${githubRepo}*.`;
       }
 
       module.exports = {
         formatVulnerabilityAlerts,
-      }
+        getIntroMsg,
+      };
 
       /***/
     },
 
     /***/ 211: /***/ function (module) {
-      module.exports = require('https')
+      module.exports = require('https');
 
       /***/
     },
 
     /***/ 219: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var utils = __webpack_require__(35)
-      var settle = __webpack_require__(564)
-      var cookies = __webpack_require__(864)
-      var buildURL = __webpack_require__(133)
-      var buildFullPath = __webpack_require__(960)
-      var parseHeaders = __webpack_require__(631)
-      var isURLSameOrigin = __webpack_require__(688)
-      var createError = __webpack_require__(26)
+      var utils = __webpack_require__(35);
+      var settle = __webpack_require__(564);
+      var cookies = __webpack_require__(864);
+      var buildURL = __webpack_require__(133);
+      var buildFullPath = __webpack_require__(960);
+      var parseHeaders = __webpack_require__(631);
+      var isURLSameOrigin = __webpack_require__(688);
+      var createError = __webpack_require__(26);
 
       module.exports = function xhrAdapter(config) {
         return new Promise(function dispatchXhrRequest(resolve, reject) {
-          var requestData = config.data
-          var requestHeaders = config.headers
+          var requestData = config.data;
+          var requestHeaders = config.headers;
 
           if (utils.isFormData(requestData)) {
-            delete requestHeaders['Content-Type'] // Let the browser set it
+            delete requestHeaders['Content-Type']; // Let the browser set it
           }
 
-          var request = new XMLHttpRequest()
+          var request = new XMLHttpRequest();
 
           // HTTP basic authentication
           if (config.auth) {
-            var username = config.auth.username || ''
+            var username = config.auth.username || '';
             var password = config.auth.password
               ? unescape(encodeURIComponent(config.auth.password))
-              : ''
-            requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password)
+              : '';
+            requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
           }
 
-          var fullPath = buildFullPath(config.baseURL, config.url)
+          var fullPath = buildFullPath(config.baseURL, config.url);
           request.open(
             config.method.toUpperCase(),
             buildURL(fullPath, config.params, config.paramsSerializer),
             true,
-          )
+          );
 
           // Set the request timeout in MS
-          request.timeout = config.timeout
+          request.timeout = config.timeout;
 
           // Listen for ready state
           request.onreadystatechange = function handleLoad() {
             if (!request || request.readyState !== 4) {
-              return
+              return;
             }
 
             // The request errored out and we didn't get a response, this will be
@@ -946,18 +1099,18 @@ module.exports = /******/ (function (modules, runtime) {
               request.status === 0 &&
               !(request.responseURL && request.responseURL.indexOf('file:') === 0)
             ) {
-              return
+              return;
             }
 
             // Prepare the response
             var responseHeaders =
               'getAllResponseHeaders' in request
                 ? parseHeaders(request.getAllResponseHeaders())
-                : null
+                : null;
             var responseData =
               !config.responseType || config.responseType === 'text'
                 ? request.responseText
-                : request.response
+                : request.response;
             var response = {
               data: responseData,
               status: request.status,
@@ -965,47 +1118,47 @@ module.exports = /******/ (function (modules, runtime) {
               headers: responseHeaders,
               config: config,
               request: request,
-            }
+            };
 
-            settle(resolve, reject, response)
+            settle(resolve, reject, response);
 
             // Clean up request
-            request = null
-          }
+            request = null;
+          };
 
           // Handle browser request cancellation (as opposed to a manual cancellation)
           request.onabort = function handleAbort() {
             if (!request) {
-              return
+              return;
             }
 
-            reject(createError('Request aborted', config, 'ECONNABORTED', request))
+            reject(createError('Request aborted', config, 'ECONNABORTED', request));
 
             // Clean up request
-            request = null
-          }
+            request = null;
+          };
 
           // Handle low level network errors
           request.onerror = function handleError() {
             // Real errors are hidden from us by the browser
             // onerror should only fire if it's a network error
-            reject(createError('Network Error', config, null, request))
+            reject(createError('Network Error', config, null, request));
 
             // Clean up request
-            request = null
-          }
+            request = null;
+          };
 
           // Handle timeout
           request.ontimeout = function handleTimeout() {
-            var timeoutErrorMessage = 'timeout of ' + config.timeout + 'ms exceeded'
+            var timeoutErrorMessage = 'timeout of ' + config.timeout + 'ms exceeded';
             if (config.timeoutErrorMessage) {
-              timeoutErrorMessage = config.timeoutErrorMessage
+              timeoutErrorMessage = config.timeoutErrorMessage;
             }
-            reject(createError(timeoutErrorMessage, config, 'ECONNABORTED', request))
+            reject(createError(timeoutErrorMessage, config, 'ECONNABORTED', request));
 
             // Clean up request
-            request = null
-          }
+            request = null;
+          };
 
           // Add xsrf header
           // This is only done if running in a standard browser environment.
@@ -1015,10 +1168,10 @@ module.exports = /******/ (function (modules, runtime) {
             var xsrfValue =
               (config.withCredentials || isURLSameOrigin(fullPath)) && config.xsrfCookieName
                 ? cookies.read(config.xsrfCookieName)
-                : undefined
+                : undefined;
 
             if (xsrfValue) {
-              requestHeaders[config.xsrfHeaderName] = xsrfValue
+              requestHeaders[config.xsrfHeaderName] = xsrfValue;
             }
           }
 
@@ -1027,94 +1180,94 @@ module.exports = /******/ (function (modules, runtime) {
             utils.forEach(requestHeaders, function setRequestHeader(val, key) {
               if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
                 // Remove Content-Type if data is undefined
-                delete requestHeaders[key]
+                delete requestHeaders[key];
               } else {
                 // Otherwise add header to the request
-                request.setRequestHeader(key, val)
+                request.setRequestHeader(key, val);
               }
-            })
+            });
           }
 
           // Add withCredentials to request if needed
           if (!utils.isUndefined(config.withCredentials)) {
-            request.withCredentials = !!config.withCredentials
+            request.withCredentials = !!config.withCredentials;
           }
 
           // Add responseType to request if needed
           if (config.responseType) {
             try {
-              request.responseType = config.responseType
+              request.responseType = config.responseType;
             } catch (e) {
               // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.
               // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.
               if (config.responseType !== 'json') {
-                throw e
+                throw e;
               }
             }
           }
 
           // Handle progress if needed
           if (typeof config.onDownloadProgress === 'function') {
-            request.addEventListener('progress', config.onDownloadProgress)
+            request.addEventListener('progress', config.onDownloadProgress);
           }
 
           // Not all browsers support upload events
           if (typeof config.onUploadProgress === 'function' && request.upload) {
-            request.upload.addEventListener('progress', config.onUploadProgress)
+            request.upload.addEventListener('progress', config.onUploadProgress);
           }
 
           if (config.cancelToken) {
             // Handle cancellation
             config.cancelToken.promise.then(function onCanceled(cancel) {
               if (!request) {
-                return
+                return;
               }
 
-              request.abort()
-              reject(cancel)
+              request.abort();
+              reject(cancel);
               // Clean up request
-              request = null
-            })
+              request = null;
+            });
           }
 
           if (!requestData) {
-            requestData = null
+            requestData = null;
           }
 
           // Send the request
-          request.send(requestData)
-        })
-      }
+          request.send(requestData);
+        });
+      };
 
       /***/
     },
 
     /***/ 247: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      const os = __webpack_require__(87)
-      const hasFlag = __webpack_require__(364)
+      const os = __webpack_require__(87);
+      const hasFlag = __webpack_require__(364);
 
-      const env = process.env
+      const env = process.env;
 
-      let forceColor
+      let forceColor;
       if (hasFlag('no-color') || hasFlag('no-colors') || hasFlag('color=false')) {
-        forceColor = false
+        forceColor = false;
       } else if (
         hasFlag('color') ||
         hasFlag('colors') ||
         hasFlag('color=true') ||
         hasFlag('color=always')
       ) {
-        forceColor = true
+        forceColor = true;
       }
       if ('FORCE_COLOR' in env) {
-        forceColor = env.FORCE_COLOR.length === 0 || parseInt(env.FORCE_COLOR, 10) !== 0
+        forceColor = env.FORCE_COLOR.length === 0 || parseInt(env.FORCE_COLOR, 10) !== 0;
       }
 
       function translateLevel(level) {
         if (level === 0) {
-          return false
+          return false;
         }
 
         return {
@@ -1122,27 +1275,27 @@ module.exports = /******/ (function (modules, runtime) {
           hasBasic: true,
           has256: level >= 2,
           has16m: level >= 3,
-        }
+        };
       }
 
       function supportsColor(stream) {
         if (forceColor === false) {
-          return 0
+          return 0;
         }
 
         if (hasFlag('color=16m') || hasFlag('color=full') || hasFlag('color=truecolor')) {
-          return 3
+          return 3;
         }
 
         if (hasFlag('color=256')) {
-          return 2
+          return 2;
         }
 
         if (stream && !stream.isTTY && forceColor !== true) {
-          return 0
+          return 0;
         }
 
-        const min = forceColor ? 1 : 0
+        const min = forceColor ? 1 : 0;
 
         if (process.platform === 'win32') {
           // Node.js 7.5.0 is the first version of Node.js to include a patch to
@@ -1151,89 +1304,89 @@ module.exports = /******/ (function (modules, runtime) {
           // release, and Node.js 7 is not. Windows 10 build 10586 is the first Windows
           // release that supports 256 colors. Windows 10 build 14931 is the first release
           // that supports 16m/TrueColor.
-          const osRelease = os.release().split('.')
+          const osRelease = os.release().split('.');
           if (
             Number(process.versions.node.split('.')[0]) >= 8 &&
             Number(osRelease[0]) >= 10 &&
             Number(osRelease[2]) >= 10586
           ) {
-            return Number(osRelease[2]) >= 14931 ? 3 : 2
+            return Number(osRelease[2]) >= 14931 ? 3 : 2;
           }
 
-          return 1
+          return 1;
         }
 
         if ('CI' in env) {
           if (
-            ['TRAVIS', 'CIRCLECI', 'APPVEYOR', 'GITLAB_CI'].some(sign => sign in env) ||
+            ['TRAVIS', 'CIRCLECI', 'APPVEYOR', 'GITLAB_CI'].some((sign) => sign in env) ||
             env.CI_NAME === 'codeship'
           ) {
-            return 1
+            return 1;
           }
 
-          return min
+          return min;
         }
 
         if ('TEAMCITY_VERSION' in env) {
-          return /^(9\.(0*[1-9]\d*)\.|\d{2,}\.)/.test(env.TEAMCITY_VERSION) ? 1 : 0
+          return /^(9\.(0*[1-9]\d*)\.|\d{2,}\.)/.test(env.TEAMCITY_VERSION) ? 1 : 0;
         }
 
         if (env.COLORTERM === 'truecolor') {
-          return 3
+          return 3;
         }
 
         if ('TERM_PROGRAM' in env) {
-          const version = parseInt((env.TERM_PROGRAM_VERSION || '').split('.')[0], 10)
+          const version = parseInt((env.TERM_PROGRAM_VERSION || '').split('.')[0], 10);
 
           switch (env.TERM_PROGRAM) {
             case 'iTerm.app':
-              return version >= 3 ? 3 : 2
+              return version >= 3 ? 3 : 2;
             case 'Apple_Terminal':
-              return 2
+              return 2;
             // No default
           }
         }
 
         if (/-256(color)?$/i.test(env.TERM)) {
-          return 2
+          return 2;
         }
 
         if (/^screen|^xterm|^vt100|^vt220|^rxvt|color|ansi|cygwin|linux/i.test(env.TERM)) {
-          return 1
+          return 1;
         }
 
         if ('COLORTERM' in env) {
-          return 1
+          return 1;
         }
 
         if (env.TERM === 'dumb') {
-          return min
+          return min;
         }
 
-        return min
+        return min;
       }
 
       function getSupportLevel(stream) {
-        const level = supportsColor(stream)
-        return translateLevel(level)
+        const level = supportsColor(stream);
+        return translateLevel(level);
       }
 
       module.exports = {
         supportsColor: getSupportLevel,
         stdout: getSupportLevel(process.stdout),
         stderr: getSupportLevel(process.stderr),
-      }
+      };
 
       /***/
     },
 
     /***/ 283: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var utils = __webpack_require__(35)
+      var utils = __webpack_require__(35);
 
       function InterceptorManager() {
-        this.handlers = []
+        this.handlers = [];
       }
 
       /**
@@ -1248,9 +1401,9 @@ module.exports = /******/ (function (modules, runtime) {
         this.handlers.push({
           fulfilled: fulfilled,
           rejected: rejected,
-        })
-        return this.handlers.length - 1
-      }
+        });
+        return this.handlers.length - 1;
+      };
 
       /**
        * Remove an interceptor from the stack
@@ -1259,9 +1412,9 @@ module.exports = /******/ (function (modules, runtime) {
        */
       InterceptorManager.prototype.eject = function eject(id) {
         if (this.handlers[id]) {
-          this.handlers[id] = null
+          this.handlers[id] = null;
         }
-      }
+      };
 
       /**
        * Iterate over all the registered interceptors
@@ -1274,24 +1427,68 @@ module.exports = /******/ (function (modules, runtime) {
       InterceptorManager.prototype.forEach = function forEach(fn) {
         utils.forEach(this.handlers, function forEachHandler(h) {
           if (h !== null) {
-            fn(h)
+            fn(h);
           }
-        })
+        });
+      };
+
+      module.exports = InterceptorManager;
+
+      /***/
+    },
+
+    /***/ 343: /***/ function (module) {
+      /**
+       * @description returns GraphQL query for [repository-specific vulnerability alerts](https://docs.github.com/en/graphql/reference/objects#repositoryvulnerabilityalert)
+       * @param {string} owner - GitHub repo owner or organization, e.g., 'SparkPost'
+       * @param {string} name - GitHub repo name, e.g., '2web2ui'
+       * @returns {string} GraphQL query
+       */
+
+      function securityVulnerabilityQuery({ owner, name }) {
+        return `query {
+    repository(owner: "${owner}", name: "${name}") {
+      vulnerabilityAlerts(first: 99) {
+        edges {
+          node {
+            securityAdvisory {
+              permalink
+              summary
+              severity
+              publishedAt
+              vulnerabilities(first: 99) {
+              	edges {
+                  node {
+                    package {
+                      name
+                    }
+                    vulnerableVersionRange
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }`;
       }
 
-      module.exports = InterceptorManager
+      module.exports = {
+        securityVulnerabilityQuery,
+      };
 
       /***/
     },
 
     /***/ 352: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var utils = __webpack_require__(35)
-      var bind = __webpack_require__(727)
-      var Axios = __webpack_require__(779)
-      var mergeConfig = __webpack_require__(825)
-      var defaults = __webpack_require__(529)
+      var utils = __webpack_require__(35);
+      var bind = __webpack_require__(727);
+      var Axios = __webpack_require__(779);
+      var mergeConfig = __webpack_require__(825);
+      var defaults = __webpack_require__(529);
 
       /**
        * Create an instance of Axios
@@ -1300,85 +1497,86 @@ module.exports = /******/ (function (modules, runtime) {
        * @return {Axios} A new instance of Axios
        */
       function createInstance(defaultConfig) {
-        var context = new Axios(defaultConfig)
-        var instance = bind(Axios.prototype.request, context)
+        var context = new Axios(defaultConfig);
+        var instance = bind(Axios.prototype.request, context);
 
         // Copy axios.prototype to instance
-        utils.extend(instance, Axios.prototype, context)
+        utils.extend(instance, Axios.prototype, context);
 
         // Copy context to instance
-        utils.extend(instance, context)
+        utils.extend(instance, context);
 
-        return instance
+        return instance;
       }
 
       // Create the default instance to be exported
-      var axios = createInstance(defaults)
+      var axios = createInstance(defaults);
 
       // Expose Axios class to allow class inheritance
-      axios.Axios = Axios
+      axios.Axios = Axios;
 
       // Factory for creating new instances
       axios.create = function create(instanceConfig) {
-        return createInstance(mergeConfig(axios.defaults, instanceConfig))
-      }
+        return createInstance(mergeConfig(axios.defaults, instanceConfig));
+      };
 
       // Expose Cancel & CancelToken
-      axios.Cancel = __webpack_require__(826)
-      axios.CancelToken = __webpack_require__(137)
-      axios.isCancel = __webpack_require__(732)
+      axios.Cancel = __webpack_require__(826);
+      axios.CancelToken = __webpack_require__(137);
+      axios.isCancel = __webpack_require__(732);
 
       // Expose all/spread
       axios.all = function all(promises) {
-        return Promise.all(promises)
-      }
-      axios.spread = __webpack_require__(879)
+        return Promise.all(promises);
+      };
+      axios.spread = __webpack_require__(879);
 
-      module.exports = axios
+      // Expose isAxiosError
+      axios.isAxiosError = __webpack_require__(104);
+
+      module.exports = axios;
 
       // Allow use of default import syntax in TypeScript
-      module.exports.default = axios
+      module.exports.default = axios;
 
       /***/
     },
 
     /***/ 357: /***/ function (module) {
-      module.exports = require('assert')
+      module.exports = require('assert');
 
       /***/
     },
 
     /***/ 361: /***/ function (module) {
       module.exports = {
-        _from: 'axios',
-        _id: 'axios@0.21.0',
+        _args: [['axios@0.21.1', '/Users/nlemmon/dev/security-badger']],
+        _from: 'axios@0.21.1',
+        _id: 'axios@0.21.1',
         _inBundle: false,
         _integrity:
-          'sha512-fmkJBknJKoZwem3/IKSSLpkdNXZeBu5Q7GA/aRsr2btgrptmSCxi2oFjZHqGdK9DoTil9PIHlPIZw2EcRJXRvw==',
+          'sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==',
         _location: '/axios',
         _phantomChildren: {},
         _requested: {
-          type: 'tag',
+          type: 'version',
           registry: true,
-          raw: 'axios',
+          raw: 'axios@0.21.1',
           name: 'axios',
           escapedName: 'axios',
-          rawSpec: '',
+          rawSpec: '0.21.1',
           saveSpec: null,
-          fetchSpec: 'latest',
+          fetchSpec: '0.21.1',
         },
-        _requiredBy: ['#USER', '/'],
-        _resolved: 'https://registry.npmjs.org/axios/-/axios-0.21.0.tgz',
-        _shasum: '26df088803a2350dff2c27f96fef99fe49442aca',
-        _spec: 'axios',
+        _requiredBy: ['/'],
+        _resolved: 'https://registry.npmjs.org/axios/-/axios-0.21.1.tgz',
+        _spec: '0.21.1',
         _where: '/Users/nlemmon/dev/security-badger',
         author: { name: 'Matt Zabriskie' },
         browser: { './lib/adapters/http.js': './lib/adapters/xhr.js' },
         bugs: { url: 'https://github.com/axios/axios/issues' },
-        bundleDependencies: false,
         bundlesize: [{ path: './dist/axios.min.js', threshold: '5kB' }],
         dependencies: { 'follow-redirects': '^1.10.0' },
-        deprecated: false,
         description: 'Promise based HTTP client for the browser and node.js',
         devDependencies: {
           bundlesize: '^0.17.0',
@@ -1438,28 +1636,28 @@ module.exports = /******/ (function (modules, runtime) {
         },
         typings: './index.d.ts',
         unpkg: 'dist/axios.min.js',
-        version: '0.21.0',
-      }
+        version: '0.21.1',
+      };
 
       /***/
     },
 
     /***/ 364: /***/ function (module) {
-      'use strict'
+      'use strict';
 
       module.exports = (flag, argv) => {
-        argv = argv || process.argv
-        const prefix = flag.startsWith('-') ? '' : flag.length === 1 ? '-' : '--'
-        const pos = argv.indexOf(prefix + flag)
-        const terminatorPos = argv.indexOf('--')
-        return pos !== -1 && (terminatorPos === -1 ? true : pos < terminatorPos)
-      }
+        argv = argv || process.argv;
+        const prefix = flag.startsWith('-') ? '' : flag.length === 1 ? '-' : '--';
+        const pos = argv.indexOf(prefix + flag);
+        const terminatorPos = argv.indexOf('--');
+        return pos !== -1 && (terminatorPos === -1 ? true : pos < terminatorPos);
+      };
 
       /***/
     },
 
     /***/ 369: /***/ function (module) {
-      'use strict'
+      'use strict';
 
       /**
        * Update an Error with the specified config, error code, and response.
@@ -1472,14 +1670,14 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {Error} The error.
        */
       module.exports = function enhanceError(error, config, code, request, response) {
-        error.config = config
+        error.config = config;
         if (code) {
-          error.code = code
+          error.code = code;
         }
 
-        error.request = request
-        error.response = response
-        error.isAxiosError = true
+        error.request = request;
+        error.response = response;
+        error.isAxiosError = true;
 
         error.toJSON = function toJSON() {
           return {
@@ -1497,128 +1695,135 @@ module.exports = /******/ (function (modules, runtime) {
             // Axios
             config: this.config,
             code: this.code,
-          }
-        }
-        return error
-      }
+          };
+        };
+        return error;
+      };
 
       /***/
     },
 
     /***/ 378: /***/ function (module, __unusedexports, __webpack_require__) {
-      const axios = __webpack_require__(53)
-      const {
-        GITHUB_API_URL,
-        GITHUB_REPOSITORY,
-        GITHUB_TOKEN,
-        SLACK_CHANNEL,
-        SLACK_WEBHOOK_URL,
-      } = __webpack_require__(648)
+      const axios = __webpack_require__(53);
+      const { GITHUB_API_URL } = __webpack_require__(648);
+      const { securityVulnerabilityQuery } = __webpack_require__(343);
 
-      function getSecurityVulnerabilities() {
-        const repoArr = GITHUB_REPOSITORY.split('/')
-        const owner = repoArr[0].toLowerCase()
-        const name = repoArr[1].toLowerCase()
-        const query = `query {
-    repository(owner: "${owner}", name: "${name}") {
-      vulnerabilityAlerts(first: 99) {
-        edges {
-          node {
-            securityAdvisory {
-              permalink
-              summary
-              severity
-              publishedAt
-              vulnerabilities(first: 99) {
-              	edges {
-                  node {
-                    package {
-                      name
-                    }
-                    vulnerableVersionRange
-                  }
-                }
-              }
-            }
-          }
-        }
+      /**
+       * @description returns structured query data derived from the GitHub repo string
+       * @param {string} githubRepo - GitHub repo string, e.g. 'SparkPost/2web2ui'
+       * @returns {Object}
+       */
+      function toQueryFriendly(githubRepo) {
+        const [owner, name] = githubRepo.split('/');
+
+        return {
+          owner: owner.toLowerCase(),
+          name: name.toLowerCase(),
+        };
       }
-    }
-  }`
-        console.log(query)
+
+      /**
+       * @description asynchronously gets [repository-specific vulnerability alerts](https://docs.github.com/en/graphql/reference/objects#repositoryvulnerabilityalert) via the GitHub GraphQL API
+       * @param {string} githubRepo - GitHub repo string, e.g. 'SparkPost/2web2ui'
+       * @param {string} githubToken - GitHub personal access token with relevant permissions for requesting data from the [GitHub GraphQL API](https://developer.github.com/v4/guides/forming-calls/#authenticating-with-graphql)
+       * @returns {Promise}
+       */
+      function getSecurityVulnerabilities({ githubRepo, githubToken }) {
+        if (!githubRepo)
+          throw new Error('No `githubRepo` supplied - GitHub data cannot be retrieved.');
+
+        if (!githubToken)
+          throw new Error('No `githubToken` supplied - GitHub data cannot be retrieved.');
+
+        const { owner, name } = toQueryFriendly(githubRepo);
+        const query = securityVulnerabilityQuery({ owner, name });
 
         return axios({
           url: GITHUB_API_URL,
           method: 'POST',
           data: { query },
           headers: {
-            Authorization: `bearer ${GITHUB_TOKEN}`,
+            Authorization: `bearer ${githubToken}`,
           },
         })
           .then(({ data }) => data)
-          .catch(err => console.log(err))
+          .catch((err) => console.log(err));
       }
 
-      function postSlackMsg({ text, blocks } = {}) {
-        if (!SLACK_WEBHOOK_URL)
-          throw new Error('No SLACK_WEBHOOK_URL supplied - messages cannot be posted.')
+      /**
+       * @description asynchronously posts to Slack [via a webhook](https://api.slack.com/messaging/webhooks)
+       * @param {string} text text content to post to a Slack Channel
+       * @param {Array} blocks array of text content, rendering as a list in a Slack message
+       * @param {string} slackChannel Slack Channel to target, e.g., '#front-end-guild'
+       * @param {string} slackWebhookUrl Slack webhook URL that receives incoming message data - this URL can be found via the app configuration that will post the message - https://api.slack.com/apps/<app-id>/incoming-webhooks
+       * @returns {Promise}
+       */
+      function postSlackMsg({ text, blocks, slackChannel, slackWebhookUrl }) {
+        if (!slackWebhookUrl)
+          throw new Error('No `slackWebhookUrl` supplied - messages cannot be posted.');
 
-        if (!SLACK_CHANNEL) throw new Error('No slackChannel supplied - messages cannot be posted.')
+        if (!slackChannel)
+          throw new Error('No `slackChannel` supplied - messages cannot be posted.');
 
         return axios({
           method: 'POST',
-          url: SLACK_WEBHOOK_URL,
+          url: slackWebhookUrl,
           data: {
-            channel: SLACK_CHANNEL,
+            channel: slackChannel,
             username: 'Security Badger',
             text,
             blocks,
           },
-        }).catch(err => console.log(err))
+        }).catch((err) => console.log(err));
       }
 
       module.exports = {
         getSecurityVulnerabilities,
         postSlackMsg,
-      }
+      };
 
       /***/
     },
 
     /***/ 411: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var utils = __webpack_require__(35)
+      var utils = __webpack_require__(35);
 
       module.exports = function normalizeHeaderName(headers, normalizedName) {
         utils.forEach(headers, function processHeader(value, name) {
           if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
-            headers[normalizedName] = value
-            delete headers[name]
+            headers[normalizedName] = value;
+            delete headers[name];
           }
-        })
-      }
+        });
+      };
 
       /***/
     },
 
     /***/ 413: /***/ function (module) {
-      module.exports = require('stream')
+      module.exports = require('stream');
 
       /***/
     },
 
     /***/ 454: /***/ function (module, __unusedexports, __webpack_require__) {
-      var debug
-      try {
-        /* eslint global-require: off */
-        debug = __webpack_require__(784)('follow-redirects')
-      } catch (error) {
-        debug = function () {
-          /* */
+      var debug;
+
+      module.exports = function () {
+        if (!debug) {
+          try {
+            /* eslint global-require: off */
+            debug = __webpack_require__(784)('follow-redirects');
+          } catch (error) {
+            debug = function () {
+              /* */
+            };
+          }
         }
-      }
-      module.exports = debug
+        debug.apply(null, arguments);
+      };
 
       /***/
     },
@@ -1630,32 +1835,32 @@ module.exports = /******/ (function (modules, runtime) {
        */
 
       function setup(env) {
-        createDebug.debug = createDebug
-        createDebug.default = createDebug
-        createDebug.coerce = coerce
-        createDebug.disable = disable
-        createDebug.enable = enable
-        createDebug.enabled = enabled
-        createDebug.humanize = __webpack_require__(761)
-        createDebug.destroy = destroy
+        createDebug.debug = createDebug;
+        createDebug.default = createDebug;
+        createDebug.coerce = coerce;
+        createDebug.disable = disable;
+        createDebug.enable = enable;
+        createDebug.enabled = enabled;
+        createDebug.humanize = __webpack_require__(761);
+        createDebug.destroy = destroy;
 
-        Object.keys(env).forEach(key => {
-          createDebug[key] = env[key]
-        })
+        Object.keys(env).forEach((key) => {
+          createDebug[key] = env[key];
+        });
 
         /**
          * The currently active debug mode names, and names to skip.
          */
 
-        createDebug.names = []
-        createDebug.skips = []
+        createDebug.names = [];
+        createDebug.skips = [];
 
         /**
          * Map of special "%n" handling functions, for the debug "format" argument.
          *
          * Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
          */
-        createDebug.formatters = {}
+        createDebug.formatters = {};
 
         /**
          * Selects a color for a debug namespace
@@ -1664,16 +1869,16 @@ module.exports = /******/ (function (modules, runtime) {
          * @api private
          */
         function selectColor(namespace) {
-          let hash = 0
+          let hash = 0;
 
           for (let i = 0; i < namespace.length; i++) {
-            hash = (hash << 5) - hash + namespace.charCodeAt(i)
-            hash |= 0 // Convert to 32bit integer
+            hash = (hash << 5) - hash + namespace.charCodeAt(i);
+            hash |= 0; // Convert to 32bit integer
           }
 
-          return createDebug.colors[Math.abs(hash) % createDebug.colors.length]
+          return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
         }
-        createDebug.selectColor = selectColor
+        createDebug.selectColor = selectColor;
 
         /**
          * Create a debugger with the given `namespace`.
@@ -1683,88 +1888,88 @@ module.exports = /******/ (function (modules, runtime) {
          * @api public
          */
         function createDebug(namespace) {
-          let prevTime
-          let enableOverride = null
+          let prevTime;
+          let enableOverride = null;
 
           function debug(...args) {
             // Disabled?
             if (!debug.enabled) {
-              return
+              return;
             }
 
-            const self = debug
+            const self = debug;
 
             // Set `diff` timestamp
-            const curr = Number(new Date())
-            const ms = curr - (prevTime || curr)
-            self.diff = ms
-            self.prev = prevTime
-            self.curr = curr
-            prevTime = curr
+            const curr = Number(new Date());
+            const ms = curr - (prevTime || curr);
+            self.diff = ms;
+            self.prev = prevTime;
+            self.curr = curr;
+            prevTime = curr;
 
-            args[0] = createDebug.coerce(args[0])
+            args[0] = createDebug.coerce(args[0]);
 
             if (typeof args[0] !== 'string') {
               // Anything else let's inspect with %O
-              args.unshift('%O')
+              args.unshift('%O');
             }
 
             // Apply any `formatters` transformations
-            let index = 0
+            let index = 0;
             args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format) => {
               // If we encounter an escaped % then don't increase the array index
               if (match === '%%') {
-                return '%'
+                return '%';
               }
-              index++
-              const formatter = createDebug.formatters[format]
+              index++;
+              const formatter = createDebug.formatters[format];
               if (typeof formatter === 'function') {
-                const val = args[index]
-                match = formatter.call(self, val)
+                const val = args[index];
+                match = formatter.call(self, val);
 
                 // Now we need to remove `args[index]` since it's inlined in the `format`
-                args.splice(index, 1)
-                index--
+                args.splice(index, 1);
+                index--;
               }
-              return match
-            })
+              return match;
+            });
 
             // Apply env-specific formatting (colors, etc.)
-            createDebug.formatArgs.call(self, args)
+            createDebug.formatArgs.call(self, args);
 
-            const logFn = self.log || createDebug.log
-            logFn.apply(self, args)
+            const logFn = self.log || createDebug.log;
+            logFn.apply(self, args);
           }
 
-          debug.namespace = namespace
-          debug.useColors = createDebug.useColors()
-          debug.color = createDebug.selectColor(namespace)
-          debug.extend = extend
-          debug.destroy = createDebug.destroy // XXX Temporary. Will be removed in the next major release.
+          debug.namespace = namespace;
+          debug.useColors = createDebug.useColors();
+          debug.color = createDebug.selectColor(namespace);
+          debug.extend = extend;
+          debug.destroy = createDebug.destroy; // XXX Temporary. Will be removed in the next major release.
 
           Object.defineProperty(debug, 'enabled', {
             enumerable: true,
             configurable: false,
             get: () => (enableOverride === null ? createDebug.enabled(namespace) : enableOverride),
-            set: v => {
-              enableOverride = v
+            set: (v) => {
+              enableOverride = v;
             },
-          })
+          });
 
           // Env-specific initialization logic for debug instances
           if (typeof createDebug.init === 'function') {
-            createDebug.init(debug)
+            createDebug.init(debug);
           }
 
-          return debug
+          return debug;
         }
 
         function extend(namespace, delimiter) {
           const newDebug = createDebug(
             this.namespace + (typeof delimiter === 'undefined' ? ':' : delimiter) + namespace,
-          )
-          newDebug.log = this.log
-          return newDebug
+          );
+          newDebug.log = this.log;
+          return newDebug;
         }
 
         /**
@@ -1775,27 +1980,27 @@ module.exports = /******/ (function (modules, runtime) {
          * @api public
          */
         function enable(namespaces) {
-          createDebug.save(namespaces)
+          createDebug.save(namespaces);
 
-          createDebug.names = []
-          createDebug.skips = []
+          createDebug.names = [];
+          createDebug.skips = [];
 
-          let i
-          const split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/)
-          const len = split.length
+          let i;
+          const split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
+          const len = split.length;
 
           for (i = 0; i < len; i++) {
             if (!split[i]) {
               // ignore empty strings
-              continue
+              continue;
             }
 
-            namespaces = split[i].replace(/\*/g, '.*?')
+            namespaces = split[i].replace(/\*/g, '.*?');
 
             if (namespaces[0] === '-') {
-              createDebug.skips.push(new RegExp('^' + namespaces.substr(1) + '$'))
+              createDebug.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
             } else {
-              createDebug.names.push(new RegExp('^' + namespaces + '$'))
+              createDebug.names.push(new RegExp('^' + namespaces + '$'));
             }
           }
         }
@@ -1809,10 +2014,10 @@ module.exports = /******/ (function (modules, runtime) {
         function disable() {
           const namespaces = [
             ...createDebug.names.map(toNamespace),
-            ...createDebug.skips.map(toNamespace).map(namespace => '-' + namespace),
-          ].join(',')
-          createDebug.enable('')
-          return namespaces
+            ...createDebug.skips.map(toNamespace).map((namespace) => '-' + namespace),
+          ].join(',');
+          createDebug.enable('');
+          return namespaces;
         }
 
         /**
@@ -1824,25 +2029,25 @@ module.exports = /******/ (function (modules, runtime) {
          */
         function enabled(name) {
           if (name[name.length - 1] === '*') {
-            return true
+            return true;
           }
 
-          let i
-          let len
+          let i;
+          let len;
 
           for (i = 0, len = createDebug.skips.length; i < len; i++) {
             if (createDebug.skips[i].test(name)) {
-              return false
+              return false;
             }
           }
 
           for (i = 0, len = createDebug.names.length; i < len; i++) {
             if (createDebug.names[i].test(name)) {
-              return true
+              return true;
             }
           }
 
-          return false
+          return false;
         }
 
         /**
@@ -1856,7 +2061,7 @@ module.exports = /******/ (function (modules, runtime) {
           return regexp
             .toString()
             .substring(2, regexp.toString().length - 2)
-            .replace(/\.\*\?$/, '*')
+            .replace(/\.\*\?$/, '*');
         }
 
         /**
@@ -1868,9 +2073,9 @@ module.exports = /******/ (function (modules, runtime) {
          */
         function coerce(val) {
           if (val instanceof Error) {
-            return val.stack || val.message
+            return val.stack || val.message;
           }
-          return val
+          return val;
         }
 
         /**
@@ -1880,48 +2085,48 @@ module.exports = /******/ (function (modules, runtime) {
         function destroy() {
           console.warn(
             'Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.',
-          )
+          );
         }
 
-        createDebug.enable(createDebug.load())
+        createDebug.enable(createDebug.load());
 
-        return createDebug
+        return createDebug;
       }
 
-      module.exports = setup
+      module.exports = setup;
 
       /***/
     },
 
     /***/ 529: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var utils = __webpack_require__(35)
-      var normalizeHeaderName = __webpack_require__(411)
+      var utils = __webpack_require__(35);
+      var normalizeHeaderName = __webpack_require__(411);
 
       var DEFAULT_CONTENT_TYPE = {
         'Content-Type': 'application/x-www-form-urlencoded',
-      }
+      };
 
       function setContentTypeIfUnset(headers, value) {
         if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
-          headers['Content-Type'] = value
+          headers['Content-Type'] = value;
         }
       }
 
       function getDefaultAdapter() {
-        var adapter
+        var adapter;
         if (typeof XMLHttpRequest !== 'undefined') {
           // For browsers use XHR adapter
-          adapter = __webpack_require__(219)
+          adapter = __webpack_require__(219);
         } else if (
           typeof process !== 'undefined' &&
           Object.prototype.toString.call(process) === '[object process]'
         ) {
           // For node use HTTP adapter
-          adapter = __webpack_require__(670)
+          adapter = __webpack_require__(670);
         }
-        return adapter
+        return adapter;
       }
 
       var defaults = {
@@ -1929,8 +2134,8 @@ module.exports = /******/ (function (modules, runtime) {
 
         transformRequest: [
           function transformRequest(data, headers) {
-            normalizeHeaderName(headers, 'Accept')
-            normalizeHeaderName(headers, 'Content-Type')
+            normalizeHeaderName(headers, 'Accept');
+            normalizeHeaderName(headers, 'Content-Type');
             if (
               utils.isFormData(data) ||
               utils.isArrayBuffer(data) ||
@@ -1939,20 +2144,20 @@ module.exports = /******/ (function (modules, runtime) {
               utils.isFile(data) ||
               utils.isBlob(data)
             ) {
-              return data
+              return data;
             }
             if (utils.isArrayBufferView(data)) {
-              return data.buffer
+              return data.buffer;
             }
             if (utils.isURLSearchParams(data)) {
-              setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8')
-              return data.toString()
+              setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+              return data.toString();
             }
             if (utils.isObject(data)) {
-              setContentTypeIfUnset(headers, 'application/json;charset=utf-8')
-              return JSON.stringify(data)
+              setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
+              return JSON.stringify(data);
             }
-            return data
+            return data;
           },
         ],
 
@@ -1961,12 +2166,12 @@ module.exports = /******/ (function (modules, runtime) {
             /*eslint no-param-reassign:0*/
             if (typeof data === 'string') {
               try {
-                data = JSON.parse(data)
+                data = JSON.parse(data);
               } catch (e) {
                 /* Ignore */
               }
             }
-            return data
+            return data;
           },
         ],
 
@@ -1983,216 +2188,242 @@ module.exports = /******/ (function (modules, runtime) {
         maxBodyLength: -1,
 
         validateStatus: function validateStatus(status) {
-          return status >= 200 && status < 300
+          return status >= 200 && status < 300;
         },
-      }
+      };
 
       defaults.headers = {
         common: {
           Accept: 'application/json, text/plain, */*',
         },
-      }
+      };
 
       utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
-        defaults.headers[method] = {}
-      })
+        defaults.headers[method] = {};
+      });
 
       utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
-        defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE)
-      })
+        defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
+      });
 
-      module.exports = defaults
+      module.exports = defaults;
 
       /***/
     },
 
     /***/ 549: /***/ function (module, __unusedexports, __webpack_require__) {
-      var url = __webpack_require__(835)
-      var URL = url.URL
-      var http = __webpack_require__(605)
-      var https = __webpack_require__(211)
-      var Writable = __webpack_require__(413).Writable
-      var assert = __webpack_require__(357)
-      var debug = __webpack_require__(454)
+      var url = __webpack_require__(835);
+      var URL = url.URL;
+      var http = __webpack_require__(605);
+      var https = __webpack_require__(211);
+      var Writable = __webpack_require__(413).Writable;
+      var assert = __webpack_require__(357);
+      var debug = __webpack_require__(454);
 
       // Create handlers that pass events from native requests
-      var eventHandlers = Object.create(null)
-      ;['abort', 'aborted', 'connect', 'error', 'socket', 'timeout'].forEach(function (event) {
+      var events = ['abort', 'aborted', 'connect', 'error', 'socket', 'timeout'];
+      var eventHandlers = Object.create(null);
+      events.forEach(function (event) {
         eventHandlers[event] = function (arg1, arg2, arg3) {
-          this._redirectable.emit(event, arg1, arg2, arg3)
-        }
-      })
+          this._redirectable.emit(event, arg1, arg2, arg3);
+        };
+      });
 
       // Error types with codes
-      var RedirectionError = createErrorType('ERR_FR_REDIRECTION_FAILURE', '')
+      var RedirectionError = createErrorType('ERR_FR_REDIRECTION_FAILURE', '');
       var TooManyRedirectsError = createErrorType(
         'ERR_FR_TOO_MANY_REDIRECTS',
         'Maximum number of redirects exceeded',
-      )
+      );
       var MaxBodyLengthExceededError = createErrorType(
         'ERR_FR_MAX_BODY_LENGTH_EXCEEDED',
         'Request body larger than maxBodyLength limit',
-      )
-      var WriteAfterEndError = createErrorType('ERR_STREAM_WRITE_AFTER_END', 'write after end')
+      );
+      var WriteAfterEndError = createErrorType('ERR_STREAM_WRITE_AFTER_END', 'write after end');
 
       // An HTTP(S) request that can be redirected
       function RedirectableRequest(options, responseCallback) {
         // Initialize the request
-        Writable.call(this)
-        this._sanitizeOptions(options)
-        this._options = options
-        this._ended = false
-        this._ending = false
-        this._redirectCount = 0
-        this._redirects = []
-        this._requestBodyLength = 0
-        this._requestBodyBuffers = []
+        Writable.call(this);
+        this._sanitizeOptions(options);
+        this._options = options;
+        this._ended = false;
+        this._ending = false;
+        this._redirectCount = 0;
+        this._redirects = [];
+        this._requestBodyLength = 0;
+        this._requestBodyBuffers = [];
 
         // Attach a callback if passed
         if (responseCallback) {
-          this.on('response', responseCallback)
+          this.on('response', responseCallback);
         }
 
         // React to responses of native requests
-        var self = this
+        var self = this;
         this._onNativeResponse = function (response) {
-          self._processResponse(response)
-        }
+          self._processResponse(response);
+        };
 
         // Perform the first request
-        this._performRequest()
+        this._performRequest();
       }
-      RedirectableRequest.prototype = Object.create(Writable.prototype)
+      RedirectableRequest.prototype = Object.create(Writable.prototype);
+
+      RedirectableRequest.prototype.abort = function () {
+        // Abort the internal request
+        abortRequest(this._currentRequest);
+
+        // Abort this request
+        this.emit('abort');
+        this.removeAllListeners();
+      };
 
       // Writes buffered data to the current native request
       RedirectableRequest.prototype.write = function (data, encoding, callback) {
         // Writing is not allowed if end has been called
         if (this._ending) {
-          throw new WriteAfterEndError()
+          throw new WriteAfterEndError();
         }
 
         // Validate input and shift parameters if necessary
         if (!(typeof data === 'string' || (typeof data === 'object' && 'length' in data))) {
-          throw new TypeError('data should be a string, Buffer or Uint8Array')
+          throw new TypeError('data should be a string, Buffer or Uint8Array');
         }
         if (typeof encoding === 'function') {
-          callback = encoding
-          encoding = null
+          callback = encoding;
+          encoding = null;
         }
 
         // Ignore empty buffers, since writing them doesn't invoke the callback
         // https://github.com/nodejs/node/issues/22066
         if (data.length === 0) {
           if (callback) {
-            callback()
+            callback();
           }
-          return
+          return;
         }
         // Only write when we don't exceed the maximum body length
         if (this._requestBodyLength + data.length <= this._options.maxBodyLength) {
-          this._requestBodyLength += data.length
-          this._requestBodyBuffers.push({ data: data, encoding: encoding })
-          this._currentRequest.write(data, encoding, callback)
+          this._requestBodyLength += data.length;
+          this._requestBodyBuffers.push({ data: data, encoding: encoding });
+          this._currentRequest.write(data, encoding, callback);
         }
         // Error when we exceed the maximum body length
         else {
-          this.emit('error', new MaxBodyLengthExceededError())
-          this.abort()
+          this.emit('error', new MaxBodyLengthExceededError());
+          this.abort();
         }
-      }
+      };
 
       // Ends the current native request
       RedirectableRequest.prototype.end = function (data, encoding, callback) {
         // Shift parameters if necessary
         if (typeof data === 'function') {
-          callback = data
-          data = encoding = null
+          callback = data;
+          data = encoding = null;
         } else if (typeof encoding === 'function') {
-          callback = encoding
-          encoding = null
+          callback = encoding;
+          encoding = null;
         }
 
         // Write data if needed and end
         if (!data) {
-          this._ended = this._ending = true
-          this._currentRequest.end(null, null, callback)
+          this._ended = this._ending = true;
+          this._currentRequest.end(null, null, callback);
         } else {
-          var self = this
-          var currentRequest = this._currentRequest
+          var self = this;
+          var currentRequest = this._currentRequest;
           this.write(data, encoding, function () {
-            self._ended = true
-            currentRequest.end(null, null, callback)
-          })
-          this._ending = true
+            self._ended = true;
+            currentRequest.end(null, null, callback);
+          });
+          this._ending = true;
         }
-      }
+      };
 
       // Sets a header value on the current native request
       RedirectableRequest.prototype.setHeader = function (name, value) {
-        this._options.headers[name] = value
-        this._currentRequest.setHeader(name, value)
-      }
+        this._options.headers[name] = value;
+        this._currentRequest.setHeader(name, value);
+      };
 
       // Clears a header value on the current native request
       RedirectableRequest.prototype.removeHeader = function (name) {
-        delete this._options.headers[name]
-        this._currentRequest.removeHeader(name)
-      }
+        delete this._options.headers[name];
+        this._currentRequest.removeHeader(name);
+      };
 
       // Global timeout for all underlying requests
       RedirectableRequest.prototype.setTimeout = function (msecs, callback) {
+        var self = this;
         if (callback) {
-          this.once('timeout', callback)
+          this.on('timeout', callback);
         }
 
+        function destroyOnTimeout(socket) {
+          socket.setTimeout(msecs);
+          socket.removeListener('timeout', socket.destroy);
+          socket.addListener('timeout', socket.destroy);
+        }
+
+        // Sets up a timer to trigger a timeout event
+        function startTimer(socket) {
+          if (self._timeout) {
+            clearTimeout(self._timeout);
+          }
+          self._timeout = setTimeout(function () {
+            self.emit('timeout');
+            clearTimer();
+          }, msecs);
+          destroyOnTimeout(socket);
+        }
+
+        // Prevent a timeout from triggering
+        function clearTimer() {
+          clearTimeout(this._timeout);
+          if (callback) {
+            self.removeListener('timeout', callback);
+          }
+          if (!this.socket) {
+            self._currentRequest.removeListener('socket', startTimer);
+          }
+        }
+
+        // Start the timer when the socket is opened
         if (this.socket) {
-          startTimer(this, msecs)
+          startTimer(this.socket);
         } else {
-          var self = this
-          this._currentRequest.once('socket', function () {
-            startTimer(self, msecs)
-          })
+          this._currentRequest.once('socket', startTimer);
         }
 
-        this.once('response', clearTimer)
-        this.once('error', clearTimer)
+        this.on('socket', destroyOnTimeout);
+        this.once('response', clearTimer);
+        this.once('error', clearTimer);
 
-        return this
-      }
-
-      function startTimer(request, msecs) {
-        clearTimeout(request._timeout)
-        request._timeout = setTimeout(function () {
-          request.emit('timeout')
-        }, msecs)
-      }
-
-      function clearTimer() {
-        clearTimeout(this._timeout)
-      }
+        return this;
+      };
 
       // Proxy all other public ClientRequest methods
-      ;['abort', 'flushHeaders', 'getHeader', 'setNoDelay', 'setSocketKeepAlive'].forEach(function (
-        method,
-      ) {
+      ['flushHeaders', 'getHeader', 'setNoDelay', 'setSocketKeepAlive'].forEach(function (method) {
         RedirectableRequest.prototype[method] = function (a, b) {
-          return this._currentRequest[method](a, b)
-        }
-      })
+          return this._currentRequest[method](a, b);
+        };
+      });
 
       // Proxy all public ClientRequest properties
-      ;['aborted', 'connection', 'socket'].forEach(function (property) {
+      ['aborted', 'connection', 'socket'].forEach(function (property) {
         Object.defineProperty(RedirectableRequest.prototype, property, {
           get: function () {
-            return this._currentRequest[property]
+            return this._currentRequest[property];
           },
-        })
-      })
+        });
+      });
 
       RedirectableRequest.prototype._sanitizeOptions = function (options) {
         // Ensure headers are always present
         if (!options.headers) {
-          options.headers = {}
+          options.headers = {};
         }
 
         // Since http.request treats host as an alias of hostname,
@@ -2201,99 +2432,96 @@ module.exports = /******/ (function (modules, runtime) {
         if (options.host) {
           // Use hostname if set, because it has precedence
           if (!options.hostname) {
-            options.hostname = options.host
+            options.hostname = options.host;
           }
-          delete options.host
+          delete options.host;
         }
 
         // Complete the URL object when necessary
         if (!options.pathname && options.path) {
-          var searchPos = options.path.indexOf('?')
+          var searchPos = options.path.indexOf('?');
           if (searchPos < 0) {
-            options.pathname = options.path
+            options.pathname = options.path;
           } else {
-            options.pathname = options.path.substring(0, searchPos)
-            options.search = options.path.substring(searchPos)
+            options.pathname = options.path.substring(0, searchPos);
+            options.search = options.path.substring(searchPos);
           }
         }
-      }
+      };
 
       // Executes the next native request (initial or redirect)
       RedirectableRequest.prototype._performRequest = function () {
         // Load the native protocol
-        var protocol = this._options.protocol
-        var nativeProtocol = this._options.nativeProtocols[protocol]
+        var protocol = this._options.protocol;
+        var nativeProtocol = this._options.nativeProtocols[protocol];
         if (!nativeProtocol) {
-          this.emit('error', new TypeError('Unsupported protocol ' + protocol))
-          return
+          this.emit('error', new TypeError('Unsupported protocol ' + protocol));
+          return;
         }
 
         // If specified, use the agent corresponding to the protocol
         // (HTTP and HTTPS use different types of agents)
         if (this._options.agents) {
-          var scheme = protocol.substr(0, protocol.length - 1)
-          this._options.agent = this._options.agents[scheme]
+          var scheme = protocol.substr(0, protocol.length - 1);
+          this._options.agent = this._options.agents[scheme];
         }
 
         // Create the native request
         var request = (this._currentRequest = nativeProtocol.request(
           this._options,
           this._onNativeResponse,
-        ))
-        this._currentUrl = url.format(this._options)
+        ));
+        this._currentUrl = url.format(this._options);
 
         // Set up event handlers
-        request._redirectable = this
-        for (var event in eventHandlers) {
-          /* istanbul ignore else */
-          if (event) {
-            request.on(event, eventHandlers[event])
-          }
+        request._redirectable = this;
+        for (var e = 0; e < events.length; e++) {
+          request.on(events[e], eventHandlers[events[e]]);
         }
 
         // End a redirected request
         // (The first request must be ended explicitly with RedirectableRequest#end)
         if (this._isRedirect) {
           // Write the request entity and end.
-          var i = 0
-          var self = this
-          var buffers = this._requestBodyBuffers
-          ;(function writeNext(error) {
+          var i = 0;
+          var self = this;
+          var buffers = this._requestBodyBuffers;
+          (function writeNext(error) {
             // Only write if this request has not been redirected yet
             /* istanbul ignore else */
             if (request === self._currentRequest) {
               // Report any write errors
               /* istanbul ignore if */
               if (error) {
-                self.emit('error', error)
+                self.emit('error', error);
               }
               // Write the next buffer if there are still left
               else if (i < buffers.length) {
-                var buffer = buffers[i++]
+                var buffer = buffers[i++];
                 /* istanbul ignore else */
                 if (!request.finished) {
-                  request.write(buffer.data, buffer.encoding, writeNext)
+                  request.write(buffer.data, buffer.encoding, writeNext);
                 }
               }
               // End the request if `end` has been called on us
               else if (self._ended) {
-                request.end()
+                request.end();
               }
             }
-          })()
+          })();
         }
-      }
+      };
 
       // Processes a response from the current native request
       RedirectableRequest.prototype._processResponse = function (response) {
         // Store the redirected response
-        var statusCode = response.statusCode
+        var statusCode = response.statusCode;
         if (this._options.trackRedirects) {
           this._redirects.push({
             url: this._currentUrl,
             headers: response.headers,
             statusCode: statusCode,
-          })
+          });
         }
 
         // RFC7231§6.4: The 3xx (Redirection) class of status code indicates
@@ -2302,7 +2530,7 @@ module.exports = /******/ (function (modules, runtime) {
         // the user agent MAY automatically redirect its request to the URI
         // referenced by the Location field value,
         // even if the specific status code is not understood.
-        var location = response.headers.location
+        var location = response.headers.location;
         if (
           location &&
           this._options.followRedirects !== false &&
@@ -2310,17 +2538,15 @@ module.exports = /******/ (function (modules, runtime) {
           statusCode < 400
         ) {
           // Abort the current request
-          this._currentRequest.removeAllListeners()
-          this._currentRequest.on('error', noop)
-          this._currentRequest.abort()
+          abortRequest(this._currentRequest);
           // Discard the remainder of the response to avoid waiting for data
-          response.destroy()
+          response.destroy();
 
           // RFC7231§6.4: A client SHOULD detect and intervene
           // in cyclical redirections (i.e., "infinite" redirection loops).
           if (++this._redirectCount > this._options.maxRedirects) {
-            this.emit('error', new TooManyRedirectsError())
-            return
+            this.emit('error', new TooManyRedirectsError());
+            return;
           }
 
           // RFC7231§6.4: Automatic redirection needs to done with
@@ -2335,59 +2561,59 @@ module.exports = /******/ (function (modules, runtime) {
             // (a GET or HEAD request if using HTTP) […]
             (statusCode === 303 && !/^(?:GET|HEAD)$/.test(this._options.method))
           ) {
-            this._options.method = 'GET'
+            this._options.method = 'GET';
             // Drop a possible entity and headers related to it
-            this._requestBodyBuffers = []
-            removeMatchingHeaders(/^content-/i, this._options.headers)
+            this._requestBodyBuffers = [];
+            removeMatchingHeaders(/^content-/i, this._options.headers);
           }
 
           // Drop the Host header, as the redirect might lead to a different host
           var previousHostName =
             removeMatchingHeaders(/^host$/i, this._options.headers) ||
-            url.parse(this._currentUrl).hostname
+            url.parse(this._currentUrl).hostname;
 
           // Create the redirected request
-          var redirectUrl = url.resolve(this._currentUrl, location)
-          debug('redirecting to', redirectUrl)
-          this._isRedirect = true
-          var redirectUrlParts = url.parse(redirectUrl)
-          Object.assign(this._options, redirectUrlParts)
+          var redirectUrl = url.resolve(this._currentUrl, location);
+          debug('redirecting to', redirectUrl);
+          this._isRedirect = true;
+          var redirectUrlParts = url.parse(redirectUrl);
+          Object.assign(this._options, redirectUrlParts);
 
           // Drop the Authorization header if redirecting to another host
           if (redirectUrlParts.hostname !== previousHostName) {
-            removeMatchingHeaders(/^authorization$/i, this._options.headers)
+            removeMatchingHeaders(/^authorization$/i, this._options.headers);
           }
 
           // Evaluate the beforeRedirect callback
           if (typeof this._options.beforeRedirect === 'function') {
-            var responseDetails = { headers: response.headers }
+            var responseDetails = { headers: response.headers };
             try {
-              this._options.beforeRedirect.call(null, this._options, responseDetails)
+              this._options.beforeRedirect.call(null, this._options, responseDetails);
             } catch (err) {
-              this.emit('error', err)
-              return
+              this.emit('error', err);
+              return;
             }
-            this._sanitizeOptions(this._options)
+            this._sanitizeOptions(this._options);
           }
 
           // Perform the redirected request
           try {
-            this._performRequest()
+            this._performRequest();
           } catch (cause) {
-            var error = new RedirectionError('Redirected request failed: ' + cause.message)
-            error.cause = cause
-            this.emit('error', error)
+            var error = new RedirectionError('Redirected request failed: ' + cause.message);
+            error.cause = cause;
+            this.emit('error', error);
           }
         } else {
           // The response is not a redirect; return it as-is
-          response.responseUrl = this._currentUrl
-          response.redirects = this._redirects
-          this.emit('response', response)
+          response.responseUrl = this._currentUrl;
+          response.redirects = this._redirects;
+          this.emit('response', response);
 
           // Clean up
-          this._requestBodyBuffers = []
+          this._requestBodyBuffers = [];
         }
-      }
+      };
 
       // Wraps the key/value object of protocols with redirect functionality
       function wrap(protocols) {
@@ -2395,36 +2621,36 @@ module.exports = /******/ (function (modules, runtime) {
         var exports = {
           maxRedirects: 21,
           maxBodyLength: 10 * 1024 * 1024,
-        }
+        };
 
         // Wrap each protocol
-        var nativeProtocols = {}
+        var nativeProtocols = {};
         Object.keys(protocols).forEach(function (scheme) {
-          var protocol = scheme + ':'
-          var nativeProtocol = (nativeProtocols[protocol] = protocols[scheme])
-          var wrappedProtocol = (exports[scheme] = Object.create(nativeProtocol))
+          var protocol = scheme + ':';
+          var nativeProtocol = (nativeProtocols[protocol] = protocols[scheme]);
+          var wrappedProtocol = (exports[scheme] = Object.create(nativeProtocol));
 
           // Executes a request, following redirects
-          wrappedProtocol.request = function (input, options, callback) {
+          function request(input, options, callback) {
             // Parse parameters
             if (typeof input === 'string') {
-              var urlStr = input
+              var urlStr = input;
               try {
-                input = urlToOptions(new URL(urlStr))
+                input = urlToOptions(new URL(urlStr));
               } catch (err) {
                 /* istanbul ignore next */
-                input = url.parse(urlStr)
+                input = url.parse(urlStr);
               }
             } else if (URL && input instanceof URL) {
-              input = urlToOptions(input)
+              input = urlToOptions(input);
             } else {
-              callback = options
-              options = input
-              input = { protocol: protocol }
+              callback = options;
+              options = input;
+              input = { protocol: protocol };
             }
             if (typeof options === 'function') {
-              callback = options
-              options = null
+              callback = options;
+              options = null;
             }
 
             // Set defaults
@@ -2435,22 +2661,28 @@ module.exports = /******/ (function (modules, runtime) {
               },
               input,
               options,
-            )
-            options.nativeProtocols = nativeProtocols
+            );
+            options.nativeProtocols = nativeProtocols;
 
-            assert.equal(options.protocol, protocol, 'protocol mismatch')
-            debug('options', options)
-            return new RedirectableRequest(options, callback)
+            assert.equal(options.protocol, protocol, 'protocol mismatch');
+            debug('options', options);
+            return new RedirectableRequest(options, callback);
           }
 
           // Executes a GET request, following redirects
-          wrappedProtocol.get = function (input, options, callback) {
-            var request = wrappedProtocol.request(input, options, callback)
-            request.end()
-            return request
+          function get(input, options, callback) {
+            var wrappedRequest = wrappedProtocol.request(input, options, callback);
+            wrappedRequest.end();
+            return wrappedRequest;
           }
-        })
-        return exports
+
+          // Expose the properties on the wrapped protocol
+          Object.defineProperties(wrappedProtocol, {
+            request: { value: request, configurable: true, enumerable: true, writable: true },
+            get: { value: get, configurable: true, enumerable: true, writable: true },
+          });
+        });
+        return exports;
       }
 
       /* istanbul ignore next */
@@ -2471,47 +2703,55 @@ module.exports = /******/ (function (modules, runtime) {
           pathname: urlObject.pathname,
           path: urlObject.pathname + urlObject.search,
           href: urlObject.href,
-        }
+        };
         if (urlObject.port !== '') {
-          options.port = Number(urlObject.port)
+          options.port = Number(urlObject.port);
         }
-        return options
+        return options;
       }
 
       function removeMatchingHeaders(regex, headers) {
-        var lastValue
+        var lastValue;
         for (var header in headers) {
           if (regex.test(header)) {
-            lastValue = headers[header]
-            delete headers[header]
+            lastValue = headers[header];
+            delete headers[header];
           }
         }
-        return lastValue
+        return lastValue;
       }
 
       function createErrorType(code, defaultMessage) {
         function CustomError(message) {
-          Error.captureStackTrace(this, this.constructor)
-          this.message = message || defaultMessage
+          Error.captureStackTrace(this, this.constructor);
+          this.message = message || defaultMessage;
         }
-        CustomError.prototype = new Error()
-        CustomError.prototype.constructor = CustomError
-        CustomError.prototype.name = 'Error [' + code + ']'
-        CustomError.prototype.code = code
-        return CustomError
+        CustomError.prototype = new Error();
+        CustomError.prototype.constructor = CustomError;
+        CustomError.prototype.name = 'Error [' + code + ']';
+        CustomError.prototype.code = code;
+        return CustomError;
+      }
+
+      function abortRequest(request) {
+        for (var e = 0; e < events.length; e++) {
+          request.removeListener(events[e], eventHandlers[events[e]]);
+        }
+        request.on('error', noop);
+        request.abort();
       }
 
       // Exports
-      module.exports = wrap({ http: http, https: https })
-      module.exports.wrap = wrap
+      module.exports = wrap({ http: http, https: https });
+      module.exports.wrap = wrap;
 
       /***/
     },
 
     /***/ 564: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var createError = __webpack_require__(26)
+      var createError = __webpack_require__(26);
 
       /**
        * Resolve or reject a Promise based on response status.
@@ -2521,9 +2761,9 @@ module.exports = /******/ (function (modules, runtime) {
        * @param {object} response The response.
        */
       module.exports = function settle(resolve, reject, response) {
-        var validateStatus = response.config.validateStatus
+        var validateStatus = response.config.validateStatus;
         if (!response.status || !validateStatus || validateStatus(response.status)) {
-          resolve(response)
+          resolve(response);
         } else {
           reject(
             createError(
@@ -2533,17 +2773,17 @@ module.exports = /******/ (function (modules, runtime) {
               response.request,
               response,
             ),
-          )
+          );
         }
-      }
+      };
 
       /***/
     },
 
     /***/ 589: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var utils = __webpack_require__(35)
+      var utils = __webpack_require__(35);
 
       /**
        * Transform the data for a request or a response
@@ -2556,17 +2796,17 @@ module.exports = /******/ (function (modules, runtime) {
       module.exports = function transformData(data, headers, fns) {
         /*eslint no-param-reassign:0*/
         utils.forEach(fns, function transform(fn) {
-          data = fn(data, headers)
-        })
+          data = fn(data, headers);
+        });
 
-        return data
-      }
+        return data;
+      };
 
       /***/
     },
 
     /***/ 590: /***/ function (module) {
-      'use strict'
+      'use strict';
 
       /**
        * Determines whether the specified URL is absolute
@@ -2578,22 +2818,28 @@ module.exports = /******/ (function (modules, runtime) {
         // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
         // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
         // by any combination of letters, digits, plus, period, or hyphen.
-        return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url)
-      }
+        return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
+      };
 
       /***/
     },
 
     /***/ 605: /***/ function (module) {
-      module.exports = require('http')
+      module.exports = require('http');
+
+      /***/
+    },
+
+    /***/ 622: /***/ function (module) {
+      module.exports = require('path');
 
       /***/
     },
 
     /***/ 631: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var utils = __webpack_require__(35)
+      var utils = __webpack_require__(35);
 
       // Headers whose duplicates are ignored by node
       // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -2615,7 +2861,7 @@ module.exports = /******/ (function (modules, runtime) {
         'referer',
         'retry-after',
         'user-agent',
-      ]
+      ];
 
       /**
        * Parse headers into an object
@@ -2631,146 +2877,166 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {Object} Headers parsed into an object
        */
       module.exports = function parseHeaders(headers) {
-        var parsed = {}
-        var key
-        var val
-        var i
+        var parsed = {};
+        var key;
+        var val;
+        var i;
 
         if (!headers) {
-          return parsed
+          return parsed;
         }
 
         utils.forEach(headers.split('\n'), function parser(line) {
-          i = line.indexOf(':')
-          key = utils.trim(line.substr(0, i)).toLowerCase()
-          val = utils.trim(line.substr(i + 1))
+          i = line.indexOf(':');
+          key = utils.trim(line.substr(0, i)).toLowerCase();
+          val = utils.trim(line.substr(i + 1));
 
           if (key) {
             if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {
-              return
+              return;
             }
             if (key === 'set-cookie') {
-              parsed[key] = (parsed[key] ? parsed[key] : []).concat([val])
+              parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);
             } else {
-              parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val
+              parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
             }
           }
-        })
+        });
 
-        return parsed
-      }
+        return parsed;
+      };
 
       /***/
     },
 
     /***/ 648: /***/ function (module) {
-      const GITHUB_API_URL = 'https://api.github.com/graphql'
-      const GITHUB_REPOSITORY = process.env.GITHUB_REPOSITORY
-      const GITHUB_TOKEN = process.env.GITHUB_TOKEN
-      const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL
-      const SLACK_CHANNEL = process.env.SLACK_CHANNEL || process.env.INPUT_SLACKCHANNEL
+      const GITHUB_API_URL = 'https://api.github.com/graphql';
 
       module.exports = {
         GITHUB_API_URL,
-        GITHUB_REPOSITORY,
-        GITHUB_TOKEN,
-        SLACK_WEBHOOK_URL,
-        SLACK_CHANNEL,
-      }
+      };
 
       /***/
     },
 
     /***/ 669: /***/ function (module) {
-      module.exports = require('util')
+      module.exports = require('util');
 
       /***/
     },
 
     /***/ 670: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var utils = __webpack_require__(35)
-      var settle = __webpack_require__(564)
-      var buildFullPath = __webpack_require__(960)
-      var buildURL = __webpack_require__(133)
-      var http = __webpack_require__(605)
-      var https = __webpack_require__(211)
-      var httpFollow = __webpack_require__(549).http
-      var httpsFollow = __webpack_require__(549).https
-      var url = __webpack_require__(835)
-      var zlib = __webpack_require__(903)
-      var pkg = __webpack_require__(361)
-      var createError = __webpack_require__(26)
-      var enhanceError = __webpack_require__(369)
+      var utils = __webpack_require__(35);
+      var settle = __webpack_require__(564);
+      var buildFullPath = __webpack_require__(960);
+      var buildURL = __webpack_require__(133);
+      var http = __webpack_require__(605);
+      var https = __webpack_require__(211);
+      var httpFollow = __webpack_require__(549).http;
+      var httpsFollow = __webpack_require__(549).https;
+      var url = __webpack_require__(835);
+      var zlib = __webpack_require__(903);
+      var pkg = __webpack_require__(361);
+      var createError = __webpack_require__(26);
+      var enhanceError = __webpack_require__(369);
 
-      var isHttps = /https:?/
+      var isHttps = /https:?/;
+
+      /**
+       *
+       * @param {http.ClientRequestArgs} options
+       * @param {AxiosProxyConfig} proxy
+       * @param {string} location
+       */
+      function setProxy(options, proxy, location) {
+        options.hostname = proxy.host;
+        options.host = proxy.host;
+        options.port = proxy.port;
+        options.path = location;
+
+        // Basic proxy authorization
+        if (proxy.auth) {
+          var base64 = Buffer.from(
+            proxy.auth.username + ':' + proxy.auth.password,
+            'utf8',
+          ).toString('base64');
+          options.headers['Proxy-Authorization'] = 'Basic ' + base64;
+        }
+
+        // If a proxy is used, any redirects must also pass through the proxy
+        options.beforeRedirect = function beforeRedirect(redirection) {
+          redirection.headers.host = redirection.host;
+          setProxy(redirection, proxy, redirection.href);
+        };
+      }
 
       /*eslint consistent-return:0*/
       module.exports = function httpAdapter(config) {
         return new Promise(function dispatchHttpRequest(resolvePromise, rejectPromise) {
           var resolve = function resolve(value) {
-            resolvePromise(value)
-          }
+            resolvePromise(value);
+          };
           var reject = function reject(value) {
-            rejectPromise(value)
-          }
-          var data = config.data
-          var headers = config.headers
+            rejectPromise(value);
+          };
+          var data = config.data;
+          var headers = config.headers;
 
           // Set User-Agent (required by some servers)
           // Only set header if it hasn't been set in config
           // See https://github.com/axios/axios/issues/69
           if (!headers['User-Agent'] && !headers['user-agent']) {
-            headers['User-Agent'] = 'axios/' + pkg.version
+            headers['User-Agent'] = 'axios/' + pkg.version;
           }
 
           if (data && !utils.isStream(data)) {
             if (Buffer.isBuffer(data)) {
               // Nothing to do...
             } else if (utils.isArrayBuffer(data)) {
-              data = Buffer.from(new Uint8Array(data))
+              data = Buffer.from(new Uint8Array(data));
             } else if (utils.isString(data)) {
-              data = Buffer.from(data, 'utf-8')
+              data = Buffer.from(data, 'utf-8');
             } else {
               return reject(
                 createError(
                   'Data after transformation must be a string, an ArrayBuffer, a Buffer, or a Stream',
                   config,
                 ),
-              )
+              );
             }
 
             // Add Content-Length header if data exists
-            headers['Content-Length'] = data.length
+            headers['Content-Length'] = data.length;
           }
 
           // HTTP basic authentication
-          var auth = undefined
+          var auth = undefined;
           if (config.auth) {
-            var username = config.auth.username || ''
-            var password = config.auth.password || ''
-            auth = username + ':' + password
+            var username = config.auth.username || '';
+            var password = config.auth.password || '';
+            auth = username + ':' + password;
           }
 
           // Parse url
-          var fullPath = buildFullPath(config.baseURL, config.url)
-          var parsed = url.parse(fullPath)
-          var protocol = parsed.protocol || 'http:'
+          var fullPath = buildFullPath(config.baseURL, config.url);
+          var parsed = url.parse(fullPath);
+          var protocol = parsed.protocol || 'http:';
 
           if (!auth && parsed.auth) {
-            var urlAuth = parsed.auth.split(':')
-            var urlUsername = urlAuth[0] || ''
-            var urlPassword = urlAuth[1] || ''
-            auth = urlUsername + ':' + urlPassword
+            var urlAuth = parsed.auth.split(':');
+            var urlUsername = urlAuth[0] || '';
+            var urlPassword = urlAuth[1] || '';
+            auth = urlUsername + ':' + urlPassword;
           }
 
           if (auth) {
-            delete headers.Authorization
+            delete headers.Authorization;
           }
 
-          var isHttpsRequest = isHttps.test(protocol)
-          var agent = isHttpsRequest ? config.httpsAgent : config.httpAgent
+          var isHttpsRequest = isHttps.test(protocol);
+          var agent = isHttpsRequest ? config.httpsAgent : config.httpAgent;
 
           var options = {
             path: buildURL(parsed.path, config.params, config.paramsSerializer).replace(/^\?/, ''),
@@ -2779,113 +3045,105 @@ module.exports = /******/ (function (modules, runtime) {
             agent: agent,
             agents: { http: config.httpAgent, https: config.httpsAgent },
             auth: auth,
-          }
+          };
 
           if (config.socketPath) {
-            options.socketPath = config.socketPath
+            options.socketPath = config.socketPath;
           } else {
-            options.hostname = parsed.hostname
-            options.port = parsed.port
+            options.hostname = parsed.hostname;
+            options.port = parsed.port;
           }
 
-          var proxy = config.proxy
+          var proxy = config.proxy;
           if (!proxy && proxy !== false) {
-            var proxyEnv = protocol.slice(0, -1) + '_proxy'
-            var proxyUrl = process.env[proxyEnv] || process.env[proxyEnv.toUpperCase()]
+            var proxyEnv = protocol.slice(0, -1) + '_proxy';
+            var proxyUrl = process.env[proxyEnv] || process.env[proxyEnv.toUpperCase()];
             if (proxyUrl) {
-              var parsedProxyUrl = url.parse(proxyUrl)
-              var noProxyEnv = process.env.no_proxy || process.env.NO_PROXY
-              var shouldProxy = true
+              var parsedProxyUrl = url.parse(proxyUrl);
+              var noProxyEnv = process.env.no_proxy || process.env.NO_PROXY;
+              var shouldProxy = true;
 
               if (noProxyEnv) {
                 var noProxy = noProxyEnv.split(',').map(function trim(s) {
-                  return s.trim()
-                })
+                  return s.trim();
+                });
 
                 shouldProxy = !noProxy.some(function proxyMatch(proxyElement) {
                   if (!proxyElement) {
-                    return false
+                    return false;
                   }
                   if (proxyElement === '*') {
-                    return true
+                    return true;
                   }
                   if (
                     proxyElement[0] === '.' &&
                     parsed.hostname.substr(parsed.hostname.length - proxyElement.length) ===
                       proxyElement
                   ) {
-                    return true
+                    return true;
                   }
 
-                  return parsed.hostname === proxyElement
-                })
+                  return parsed.hostname === proxyElement;
+                });
               }
 
               if (shouldProxy) {
                 proxy = {
                   host: parsedProxyUrl.hostname,
                   port: parsedProxyUrl.port,
-                }
+                  protocol: parsedProxyUrl.protocol,
+                };
 
                 if (parsedProxyUrl.auth) {
-                  var proxyUrlAuth = parsedProxyUrl.auth.split(':')
+                  var proxyUrlAuth = parsedProxyUrl.auth.split(':');
                   proxy.auth = {
                     username: proxyUrlAuth[0],
                     password: proxyUrlAuth[1],
-                  }
+                  };
                 }
               }
             }
           }
 
           if (proxy) {
-            options.hostname = proxy.host
-            options.host = proxy.host
-            options.headers.host = parsed.hostname + (parsed.port ? ':' + parsed.port : '')
-            options.port = proxy.port
-            options.path =
+            options.headers.host = parsed.hostname + (parsed.port ? ':' + parsed.port : '');
+            setProxy(
+              options,
+              proxy,
               protocol +
-              '//' +
-              parsed.hostname +
-              (parsed.port ? ':' + parsed.port : '') +
-              options.path
-
-            // Basic proxy authorization
-            if (proxy.auth) {
-              var base64 = Buffer.from(
-                proxy.auth.username + ':' + proxy.auth.password,
-                'utf8',
-              ).toString('base64')
-              options.headers['Proxy-Authorization'] = 'Basic ' + base64
-            }
+                '//' +
+                parsed.hostname +
+                (parsed.port ? ':' + parsed.port : '') +
+                options.path,
+            );
           }
 
-          var transport
-          var isHttpsProxy = isHttpsRequest && (proxy ? isHttps.test(proxy.protocol) : true)
+          var transport;
+          var isHttpsProxy = isHttpsRequest && (proxy ? isHttps.test(proxy.protocol) : true);
           if (config.transport) {
-            transport = config.transport
+            transport = config.transport;
           } else if (config.maxRedirects === 0) {
-            transport = isHttpsProxy ? https : http
+            transport = isHttpsProxy ? https : http;
           } else {
             if (config.maxRedirects) {
-              options.maxRedirects = config.maxRedirects
+              options.maxRedirects = config.maxRedirects;
             }
-            transport = isHttpsProxy ? httpsFollow : httpFollow
+            transport = isHttpsProxy ? httpsFollow : httpFollow;
           }
 
           if (config.maxBodyLength > -1) {
-            options.maxBodyLength = config.maxBodyLength
+            options.maxBodyLength = config.maxBodyLength;
           }
 
           // Create the request
           var req = transport.request(options, function handleResponse(res) {
-            if (req.aborted) return
+            if (req.aborted) return;
 
             // uncompress the response body transparently if required
-            var stream = res
+            var stream = res;
 
             // return the last request in case of redirects
-            var lastRequest = res.req || req
+            var lastRequest = res.req || req;
 
             // if no content, is HEAD request or decompress disabled we should not decompress
             if (
@@ -2899,11 +3157,11 @@ module.exports = /******/ (function (modules, runtime) {
                 case 'compress':
                 case 'deflate':
                   // add the unzipper to the body stream processing pipeline
-                  stream = stream.pipe(zlib.createUnzip())
+                  stream = stream.pipe(zlib.createUnzip());
 
                   // remove the content-encoding in order to not confuse downstream operations
-                  delete res.headers['content-encoding']
-                  break
+                  delete res.headers['content-encoding'];
+                  break;
               }
             }
 
@@ -2913,22 +3171,22 @@ module.exports = /******/ (function (modules, runtime) {
               headers: res.headers,
               config: config,
               request: lastRequest,
-            }
+            };
 
             if (config.responseType === 'stream') {
-              response.data = stream
-              settle(resolve, reject, response)
+              response.data = stream;
+              settle(resolve, reject, response);
             } else {
-              var responseBuffer = []
+              var responseBuffer = [];
               stream.on('data', function handleStreamData(chunk) {
-                responseBuffer.push(chunk)
+                responseBuffer.push(chunk);
 
                 // make sure the content length is not over the maxContentLength if specified
                 if (
                   config.maxContentLength > -1 &&
                   Buffer.concat(responseBuffer).length > config.maxContentLength
                 ) {
-                  stream.destroy()
+                  stream.destroy();
                   reject(
                     createError(
                       'maxContentLength size of ' + config.maxContentLength + ' exceeded',
@@ -2936,35 +3194,35 @@ module.exports = /******/ (function (modules, runtime) {
                       null,
                       lastRequest,
                     ),
-                  )
+                  );
                 }
-              })
+              });
 
               stream.on('error', function handleStreamError(err) {
-                if (req.aborted) return
-                reject(enhanceError(err, config, null, lastRequest))
-              })
+                if (req.aborted) return;
+                reject(enhanceError(err, config, null, lastRequest));
+              });
 
               stream.on('end', function handleStreamEnd() {
-                var responseData = Buffer.concat(responseBuffer)
+                var responseData = Buffer.concat(responseBuffer);
                 if (config.responseType !== 'arraybuffer') {
-                  responseData = responseData.toString(config.responseEncoding)
+                  responseData = responseData.toString(config.responseEncoding);
                   if (!config.responseEncoding || config.responseEncoding === 'utf8') {
-                    responseData = utils.stripBOM(responseData)
+                    responseData = utils.stripBOM(responseData);
                   }
                 }
 
-                response.data = responseData
-                settle(resolve, reject, response)
-              })
+                response.data = responseData;
+                settle(resolve, reject, response);
+              });
             }
-          })
+          });
 
           // Handle errors
           req.on('error', function handleRequestError(err) {
-            if (req.aborted && err.code !== 'ERR_FR_TOO_MANY_REDIRECTS') return
-            reject(enhanceError(err, config, null, req))
-          })
+            if (req.aborted && err.code !== 'ERR_FR_TOO_MANY_REDIRECTS') return;
+            reject(enhanceError(err, config, null, req));
+          });
 
           // Handle request timeout
           if (config.timeout) {
@@ -2974,7 +3232,7 @@ module.exports = /******/ (function (modules, runtime) {
             // And then these socket which be hang up will devoring CPU little by little.
             // ClientRequest.setTimeout will be fired on the specify milliseconds, and can make sure that abort() will be fired after connect.
             req.setTimeout(config.timeout, function handleRequestTimeout() {
-              req.abort()
+              req.abort();
               reject(
                 createError(
                   'timeout of ' + config.timeout + 'ms exceeded',
@@ -2982,121 +3240,126 @@ module.exports = /******/ (function (modules, runtime) {
                   'ECONNABORTED',
                   req,
                 ),
-              )
-            })
+              );
+            });
           }
 
           if (config.cancelToken) {
             // Handle cancellation
             config.cancelToken.promise.then(function onCanceled(cancel) {
-              if (req.aborted) return
+              if (req.aborted) return;
 
-              req.abort()
-              reject(cancel)
-            })
+              req.abort();
+              reject(cancel);
+            });
           }
 
           // Send the request
           if (utils.isStream(data)) {
             data
               .on('error', function handleStreamError(err) {
-                reject(enhanceError(err, config, null, req))
+                reject(enhanceError(err, config, null, req));
               })
-              .pipe(req)
+              .pipe(req);
           } else {
-            req.end(data)
+            req.end(data);
           }
-        })
-      }
+        });
+      };
 
       /***/
     },
 
-    /***/ 676: /***/ function (__unusedmodule, __unusedexports, __webpack_require__) {
-      const { GITHUB_REPOSITORY } = __webpack_require__(648)
-      const { getSecurityVulnerabilities, postSlackMsg } = __webpack_require__(378)
-      const { formatVulnerabilityAlerts } = __webpack_require__(197)
+    /***/ 676: /***/ function (module, __unusedexports, __webpack_require__) {
+      const { getSecurityVulnerabilities, postSlackMsg } = __webpack_require__(378);
+      const { formatVulnerabilityAlerts, getIntroMsg } = __webpack_require__(197);
 
-      function getIntroMsg(numberOfVulnerabilities) {
-        if (numberOfVulnerabilities === 1)
-          return `There is 1 security vulnerability that needs to be addressed for the repo *${GITHUB_REPOSITORY}*.`
+      // Allows for consumption of .env files
+      __webpack_require__(63).config();
 
-        return `There are ${numberOfVulnerabilities} vulnerabilities that still need to be addressed for the repo *${GITHUB_REPOSITORY}*.`
-      }
+      async function main() {
+        const { data } = await getSecurityVulnerabilities({
+          githubRepo: process.env.GITHUB_REPOSITORY,
+          githubToken: process.env.GITHUB_TOKEN,
+        });
+        const vulnerabilityAlerts = formatVulnerabilityAlerts(data);
 
-      async function start() {
-        const { data } = await getSecurityVulnerabilities()
-        const vulnerabilityAlerts = formatVulnerabilityAlerts(data)
+        if (Boolean(vulnerabilityAlerts) && vulnerabilityAlerts.length === 0)
+          return console.log('No security vulnerabilities found.');
 
-        if (!vulnerabilityAlerts) return console.log('No security vulnerabilities found.')
+        const introMsg = getIntroMsg({
+          numberOfVulnerabilities: vulnerabilityAlerts.length,
+          githubRepo: process.env.GITHUB_REPOSITORY,
+        });
 
-        if (vulnerabilityAlerts.length > 0) {
-          const introMsg = getIntroMsg(vulnerabilityAlerts.length)
-
-          await postSlackMsg({
-            blocks: [
-              {
-                type: 'section',
-                text: {
-                  type: 'mrkdwn',
-                  text: `*A wild Security Badger appeared!* \n ${introMsg}`,
-                },
+        await postSlackMsg({
+          slackChannel: process.env.SLACK_CHANNEL || process.env.INPUT_SLACKCHANNEL,
+          slackWebhookUrl: process.env.SLACK_WEBHOOK_URL,
+          blocks: [
+            {
+              type: 'section',
+              text: {
+                type: 'mrkdwn',
+                text: `*A wild Security Badger appeared!* \n ${introMsg}`,
               },
-              ...[].concat(
-                ...vulnerabilityAlerts.map(alert => {
-                  const { permalink, summary, severity, versionRange } = alert
-                  const summaryContent = permalink
-                    ? `*<${permalink}|:rotating_light: ${summary}>*`
-                    : `*:rotating_light: ${summary}*`
-                  const contextContent = versionRange
-                    ? `*${severity}* severity vulnerability within version range ${versionRange}.`
-                    : `*${severity}* vulnerability.`
+            },
+            ...[].concat(
+              ...vulnerabilityAlerts.map((alert) => {
+                const { permalink, summary, severity, versionRange } = alert;
+                const summaryContent = permalink
+                  ? `*<${permalink}|:rotating_light: ${summary}>*`
+                  : `*:rotating_light: ${summary}*`;
+                const contextContent = versionRange
+                  ? `*${severity}* severity vulnerability within version range ${versionRange}.`
+                  : `*${severity}* vulnerability.`;
 
-                  return [
-                    {
-                      type: 'divider',
+                return [
+                  {
+                    type: 'divider',
+                  },
+                  {
+                    type: 'section',
+                    text: {
+                      type: 'mrkdwn',
+                      text: summaryContent,
                     },
-                    {
-                      type: 'section',
-                      text: {
+                  },
+                  {
+                    type: 'context',
+                    elements: [
+                      {
                         type: 'mrkdwn',
-                        text: summaryContent,
+                        text: contextContent,
                       },
-                    },
-                    {
-                      type: 'context',
-                      elements: [
-                        {
-                          type: 'mrkdwn',
-                          text: contextContent,
-                        },
-                      ],
-                    },
-                  ]
-                }),
-              ),
-            ],
-          })
-        }
+                    ],
+                  },
+                ];
+              }),
+            ),
+          ],
+        });
       }
 
-      start()
+      main();
+
+      // Exported for testing purposes
+      module.exports = { main };
 
       /***/
     },
 
     /***/ 688: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var utils = __webpack_require__(35)
+      var utils = __webpack_require__(35);
 
       module.exports = utils.isStandardBrowserEnv()
         ? // Standard browser envs have full support of the APIs needed to test
           // whether the request URL is of the same origin as current location.
           (function standardBrowserEnv() {
-            var msie = /(msie|trident)/i.test(navigator.userAgent)
-            var urlParsingNode = document.createElement('a')
-            var originURL
+            var msie = /(msie|trident)/i.test(navigator.userAgent);
+            var urlParsingNode = document.createElement('a');
+            var originURL;
 
             /**
              * Parse a URL to discover it's components
@@ -3105,15 +3368,15 @@ module.exports = /******/ (function (modules, runtime) {
              * @returns {Object}
              */
             function resolveURL(url) {
-              var href = url
+              var href = url;
 
               if (msie) {
                 // IE needs attribute set twice to normalize properties
-                urlParsingNode.setAttribute('href', href)
-                href = urlParsingNode.href
+                urlParsingNode.setAttribute('href', href);
+                href = urlParsingNode.href;
               }
 
-              urlParsingNode.setAttribute('href', href)
+              urlParsingNode.setAttribute('href', href);
 
               // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
               return {
@@ -3128,10 +3391,10 @@ module.exports = /******/ (function (modules, runtime) {
                   urlParsingNode.pathname.charAt(0) === '/'
                     ? urlParsingNode.pathname
                     : '/' + urlParsingNode.pathname,
-              }
+              };
             }
 
-            originURL = resolveURL(window.location.href)
+            originURL = resolveURL(window.location.href);
 
             /**
              * Determine if a URL shares the same origin as the current location
@@ -3140,42 +3403,48 @@ module.exports = /******/ (function (modules, runtime) {
              * @returns {boolean} True if URL shares the same origin, otherwise false
              */
             return function isURLSameOrigin(requestURL) {
-              var parsed = utils.isString(requestURL) ? resolveURL(requestURL) : requestURL
-              return parsed.protocol === originURL.protocol && parsed.host === originURL.host
-            }
+              var parsed = utils.isString(requestURL) ? resolveURL(requestURL) : requestURL;
+              return parsed.protocol === originURL.protocol && parsed.host === originURL.host;
+            };
           })()
         : // Non standard browser envs (web workers, react-native) lack needed support.
           (function nonStandardBrowserEnv() {
             return function isURLSameOrigin() {
-              return true
-            }
-          })()
+              return true;
+            };
+          })();
 
       /***/
     },
 
     /***/ 727: /***/ function (module) {
-      'use strict'
+      'use strict';
 
       module.exports = function bind(fn, thisArg) {
         return function wrap() {
-          var args = new Array(arguments.length)
+          var args = new Array(arguments.length);
           for (var i = 0; i < args.length; i++) {
-            args[i] = arguments[i]
+            args[i] = arguments[i];
           }
-          return fn.apply(thisArg, args)
-        }
-      }
+          return fn.apply(thisArg, args);
+        };
+      };
 
       /***/
     },
 
     /***/ 732: /***/ function (module) {
-      'use strict'
+      'use strict';
 
       module.exports = function isCancel(value) {
-        return !!(value && value.__CANCEL__)
-      }
+        return !!(value && value.__CANCEL__);
+      };
+
+      /***/
+    },
+
+    /***/ 747: /***/ function (module) {
+      module.exports = require('fs');
 
       /***/
     },
@@ -3185,12 +3454,12 @@ module.exports = /******/ (function (modules, runtime) {
        * Helpers.
        */
 
-      var s = 1000
-      var m = s * 60
-      var h = m * 60
-      var d = h * 24
-      var w = d * 7
-      var y = d * 365.25
+      var s = 1000;
+      var m = s * 60;
+      var h = m * 60;
+      var d = h * 24;
+      var w = d * 7;
+      var y = d * 365.25;
 
       /**
        * Parse or format the given `val`.
@@ -3207,17 +3476,17 @@ module.exports = /******/ (function (modules, runtime) {
        */
 
       module.exports = function (val, options) {
-        options = options || {}
-        var type = typeof val
+        options = options || {};
+        var type = typeof val;
         if (type === 'string' && val.length > 0) {
-          return parse(val)
+          return parse(val);
         } else if (type === 'number' && isFinite(val)) {
-          return options.long ? fmtLong(val) : fmtShort(val)
+          return options.long ? fmtLong(val) : fmtShort(val);
         }
         throw new Error(
           'val is not a non-empty string or a valid number. val=' + JSON.stringify(val),
-        )
-      }
+        );
+      };
 
       /**
        * Parse the given `str` and return milliseconds.
@@ -3228,59 +3497,59 @@ module.exports = /******/ (function (modules, runtime) {
        */
 
       function parse(str) {
-        str = String(str)
+        str = String(str);
         if (str.length > 100) {
-          return
+          return;
         }
         var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
           str,
-        )
+        );
         if (!match) {
-          return
+          return;
         }
-        var n = parseFloat(match[1])
-        var type = (match[2] || 'ms').toLowerCase()
+        var n = parseFloat(match[1]);
+        var type = (match[2] || 'ms').toLowerCase();
         switch (type) {
           case 'years':
           case 'year':
           case 'yrs':
           case 'yr':
           case 'y':
-            return n * y
+            return n * y;
           case 'weeks':
           case 'week':
           case 'w':
-            return n * w
+            return n * w;
           case 'days':
           case 'day':
           case 'd':
-            return n * d
+            return n * d;
           case 'hours':
           case 'hour':
           case 'hrs':
           case 'hr':
           case 'h':
-            return n * h
+            return n * h;
           case 'minutes':
           case 'minute':
           case 'mins':
           case 'min':
           case 'm':
-            return n * m
+            return n * m;
           case 'seconds':
           case 'second':
           case 'secs':
           case 'sec':
           case 's':
-            return n * s
+            return n * s;
           case 'milliseconds':
           case 'millisecond':
           case 'msecs':
           case 'msec':
           case 'ms':
-            return n
+            return n;
           default:
-            return undefined
+            return undefined;
         }
       }
 
@@ -3293,20 +3562,20 @@ module.exports = /******/ (function (modules, runtime) {
        */
 
       function fmtShort(ms) {
-        var msAbs = Math.abs(ms)
+        var msAbs = Math.abs(ms);
         if (msAbs >= d) {
-          return Math.round(ms / d) + 'd'
+          return Math.round(ms / d) + 'd';
         }
         if (msAbs >= h) {
-          return Math.round(ms / h) + 'h'
+          return Math.round(ms / h) + 'h';
         }
         if (msAbs >= m) {
-          return Math.round(ms / m) + 'm'
+          return Math.round(ms / m) + 'm';
         }
         if (msAbs >= s) {
-          return Math.round(ms / s) + 's'
+          return Math.round(ms / s) + 's';
         }
-        return ms + 'ms'
+        return ms + 'ms';
       }
 
       /**
@@ -3318,20 +3587,20 @@ module.exports = /******/ (function (modules, runtime) {
        */
 
       function fmtLong(ms) {
-        var msAbs = Math.abs(ms)
+        var msAbs = Math.abs(ms);
         if (msAbs >= d) {
-          return plural(ms, msAbs, d, 'day')
+          return plural(ms, msAbs, d, 'day');
         }
         if (msAbs >= h) {
-          return plural(ms, msAbs, h, 'hour')
+          return plural(ms, msAbs, h, 'hour');
         }
         if (msAbs >= m) {
-          return plural(ms, msAbs, m, 'minute')
+          return plural(ms, msAbs, m, 'minute');
         }
         if (msAbs >= s) {
-          return plural(ms, msAbs, s, 'second')
+          return plural(ms, msAbs, s, 'second');
         }
-        return ms + ' ms'
+        return ms + ' ms';
       }
 
       /**
@@ -3339,21 +3608,21 @@ module.exports = /******/ (function (modules, runtime) {
        */
 
       function plural(ms, msAbs, n, name) {
-        var isPlural = msAbs >= n * 1.5
-        return Math.round(ms / n) + ' ' + name + (isPlural ? 's' : '')
+        var isPlural = msAbs >= n * 1.5;
+        return Math.round(ms / n) + ' ' + name + (isPlural ? 's' : '');
       }
 
       /***/
     },
 
     /***/ 779: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var utils = __webpack_require__(35)
-      var buildURL = __webpack_require__(133)
-      var InterceptorManager = __webpack_require__(283)
-      var dispatchRequest = __webpack_require__(946)
-      var mergeConfig = __webpack_require__(825)
+      var utils = __webpack_require__(35);
+      var buildURL = __webpack_require__(133);
+      var InterceptorManager = __webpack_require__(283);
+      var dispatchRequest = __webpack_require__(946);
+      var mergeConfig = __webpack_require__(825);
 
       /**
        * Create a new instance of Axios
@@ -3361,11 +3630,11 @@ module.exports = /******/ (function (modules, runtime) {
        * @param {Object} instanceConfig The default config for the instance
        */
       function Axios(instanceConfig) {
-        this.defaults = instanceConfig
+        this.defaults = instanceConfig;
         this.interceptors = {
           request: new InterceptorManager(),
           response: new InterceptorManager(),
-        }
+        };
       }
 
       /**
@@ -3377,46 +3646,46 @@ module.exports = /******/ (function (modules, runtime) {
         /*eslint no-param-reassign:0*/
         // Allow for axios('example/url'[, config]) a la fetch API
         if (typeof config === 'string') {
-          config = arguments[1] || {}
-          config.url = arguments[0]
+          config = arguments[1] || {};
+          config.url = arguments[0];
         } else {
-          config = config || {}
+          config = config || {};
         }
 
-        config = mergeConfig(this.defaults, config)
+        config = mergeConfig(this.defaults, config);
 
         // Set config.method
         if (config.method) {
-          config.method = config.method.toLowerCase()
+          config.method = config.method.toLowerCase();
         } else if (this.defaults.method) {
-          config.method = this.defaults.method.toLowerCase()
+          config.method = this.defaults.method.toLowerCase();
         } else {
-          config.method = 'get'
+          config.method = 'get';
         }
 
         // Hook up interceptors middleware
-        var chain = [dispatchRequest, undefined]
-        var promise = Promise.resolve(config)
+        var chain = [dispatchRequest, undefined];
+        var promise = Promise.resolve(config);
 
         this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
-          chain.unshift(interceptor.fulfilled, interceptor.rejected)
-        })
+          chain.unshift(interceptor.fulfilled, interceptor.rejected);
+        });
 
         this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
-          chain.push(interceptor.fulfilled, interceptor.rejected)
-        })
+          chain.push(interceptor.fulfilled, interceptor.rejected);
+        });
 
         while (chain.length) {
-          promise = promise.then(chain.shift(), chain.shift())
+          promise = promise.then(chain.shift(), chain.shift());
         }
 
-        return promise
-      }
+        return promise;
+      };
 
       Axios.prototype.getUri = function getUri(config) {
-        config = mergeConfig(this.defaults, config)
-        return buildURL(config.url, config.params, config.paramsSerializer).replace(/^\?/, '')
-      }
+        config = mergeConfig(this.defaults, config);
+        return buildURL(config.url, config.params, config.paramsSerializer).replace(/^\?/, '');
+      };
 
       // Provide aliases for supported request methods
       utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
@@ -3428,9 +3697,9 @@ module.exports = /******/ (function (modules, runtime) {
               url: url,
               data: (config || {}).data,
             }),
-          )
-        }
-      })
+          );
+        };
+      });
 
       utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
         /*eslint func-names:0*/
@@ -3441,11 +3710,11 @@ module.exports = /******/ (function (modules, runtime) {
               url: url,
               data: data,
             }),
-          )
-        }
-      })
+          );
+        };
+      });
 
-      module.exports = Axios
+      module.exports = Axios;
 
       /***/
     },
@@ -3462,9 +3731,9 @@ module.exports = /******/ (function (modules, runtime) {
         process.browser === true ||
         process.__nwjs
       ) {
-        module.exports = __webpack_require__(794)
+        module.exports = __webpack_require__(794);
       } else {
-        module.exports = __webpack_require__(81)
+        module.exports = __webpack_require__(81);
       }
 
       /***/
@@ -3477,23 +3746,23 @@ module.exports = /******/ (function (modules, runtime) {
        * This is the web browser implementation of `debug()`.
        */
 
-      exports.formatArgs = formatArgs
-      exports.save = save
-      exports.load = load
-      exports.useColors = useColors
-      exports.storage = localstorage()
+      exports.formatArgs = formatArgs;
+      exports.save = save;
+      exports.load = load;
+      exports.useColors = useColors;
+      exports.storage = localstorage();
       exports.destroy = (() => {
-        let warned = false
+        let warned = false;
 
         return () => {
           if (!warned) {
-            warned = true
+            warned = true;
             console.warn(
               'Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.',
-            )
+            );
           }
-        }
-      })()
+        };
+      })();
 
       /**
        * Colors.
@@ -3576,7 +3845,7 @@ module.exports = /******/ (function (modules, runtime) {
         '#FF9933',
         '#FFCC00',
         '#FFCC33',
-      ]
+      ];
 
       /**
        * Currently only WebKit-based Web Inspectors, Firefox >= v31,
@@ -3596,7 +3865,7 @@ module.exports = /******/ (function (modules, runtime) {
           window.process &&
           (window.process.type === 'renderer' || window.process.__nwjs)
         ) {
-          return true
+          return true;
         }
 
         // Internet Explorer and Edge do not support colors.
@@ -3605,7 +3874,7 @@ module.exports = /******/ (function (modules, runtime) {
           navigator.userAgent &&
           navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)
         ) {
-          return false
+          return false;
         }
 
         // Is webkit? http://stackoverflow.com/a/16459606/376773
@@ -3629,7 +3898,7 @@ module.exports = /******/ (function (modules, runtime) {
           (typeof navigator !== 'undefined' &&
             navigator.userAgent &&
             navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/))
-        )
+        );
       }
 
       /**
@@ -3646,33 +3915,33 @@ module.exports = /******/ (function (modules, runtime) {
           args[0] +
           (this.useColors ? '%c ' : ' ') +
           '+' +
-          module.exports.humanize(this.diff)
+          module.exports.humanize(this.diff);
 
         if (!this.useColors) {
-          return
+          return;
         }
 
-        const c = 'color: ' + this.color
-        args.splice(1, 0, c, 'color: inherit')
+        const c = 'color: ' + this.color;
+        args.splice(1, 0, c, 'color: inherit');
 
         // The final "%c" is somewhat tricky, because there could be other
         // arguments passed either before or after the %c, so we need to
         // figure out the correct index to insert the CSS into
-        let index = 0
-        let lastC = 0
-        args[0].replace(/%[a-zA-Z%]/g, match => {
+        let index = 0;
+        let lastC = 0;
+        args[0].replace(/%[a-zA-Z%]/g, (match) => {
           if (match === '%%') {
-            return
+            return;
           }
-          index++
+          index++;
           if (match === '%c') {
             // We only are interested in the *last* %c
             // (the user may have provided their own)
-            lastC = index
+            lastC = index;
           }
-        })
+        });
 
-        args.splice(lastC, 0, c)
+        args.splice(lastC, 0, c);
       }
 
       /**
@@ -3683,7 +3952,7 @@ module.exports = /******/ (function (modules, runtime) {
        *
        * @api public
        */
-      exports.log = console.debug || console.log || (() => {})
+      exports.log = console.debug || console.log || (() => {});
 
       /**
        * Save `namespaces`.
@@ -3694,9 +3963,9 @@ module.exports = /******/ (function (modules, runtime) {
       function save(namespaces) {
         try {
           if (namespaces) {
-            exports.storage.setItem('debug', namespaces)
+            exports.storage.setItem('debug', namespaces);
           } else {
-            exports.storage.removeItem('debug')
+            exports.storage.removeItem('debug');
           }
         } catch (error) {
           // Swallow
@@ -3711,9 +3980,9 @@ module.exports = /******/ (function (modules, runtime) {
        * @api private
        */
       function load() {
-        let r
+        let r;
         try {
-          r = exports.storage.getItem('debug')
+          r = exports.storage.getItem('debug');
         } catch (error) {
           // Swallow
           // XXX (@Qix-) should we be logging these?
@@ -3721,10 +3990,10 @@ module.exports = /******/ (function (modules, runtime) {
 
         // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
         if (!r && typeof process !== 'undefined' && 'env' in process) {
-          r = process.env.DEBUG
+          r = process.env.DEBUG;
         }
 
-        return r
+        return r;
       }
 
       /**
@@ -3742,16 +4011,16 @@ module.exports = /******/ (function (modules, runtime) {
         try {
           // TVMLKit (Apple TV JS Runtime) does not have a window object, just localStorage in the global context
           // The Browser also has localStorage in the global context.
-          return localStorage
+          return localStorage;
         } catch (error) {
           // Swallow
           // XXX (@Qix-) should we be logging these?
         }
       }
 
-      module.exports = __webpack_require__(486)(exports)
+      module.exports = __webpack_require__(486)(exports);
 
-      const { formatters } = module.exports
+      const { formatters } = module.exports;
 
       /**
        * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
@@ -3759,19 +4028,19 @@ module.exports = /******/ (function (modules, runtime) {
 
       formatters.j = function (v) {
         try {
-          return JSON.stringify(v)
+          return JSON.stringify(v);
         } catch (error) {
-          return '[UnexpectedJSONParseError]: ' + error.message
+          return '[UnexpectedJSONParseError]: ' + error.message;
         }
-      }
+      };
 
       /***/
     },
 
     /***/ 825: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var utils = __webpack_require__(35)
+      var utils = __webpack_require__(35);
 
       /**
        * Config-specific merge-function which creates a new config-object
@@ -3783,11 +4052,11 @@ module.exports = /******/ (function (modules, runtime) {
        */
       module.exports = function mergeConfig(config1, config2) {
         // eslint-disable-next-line no-param-reassign
-        config2 = config2 || {}
-        var config = {}
+        config2 = config2 || {};
+        var config = {};
 
-        var valueFromConfig2Keys = ['url', 'method', 'data']
-        var mergeDeepPropertiesKeys = ['headers', 'auth', 'proxy', 'params']
+        var valueFromConfig2Keys = ['url', 'method', 'data'];
+        var mergeDeepPropertiesKeys = ['headers', 'auth', 'proxy', 'params'];
         var defaultToConfig2Keys = [
           'baseURL',
           'transformRequest',
@@ -3812,73 +4081,73 @@ module.exports = /******/ (function (modules, runtime) {
           'cancelToken',
           'socketPath',
           'responseEncoding',
-        ]
-        var directMergeKeys = ['validateStatus']
+        ];
+        var directMergeKeys = ['validateStatus'];
 
         function getMergedValue(target, source) {
           if (utils.isPlainObject(target) && utils.isPlainObject(source)) {
-            return utils.merge(target, source)
+            return utils.merge(target, source);
           } else if (utils.isPlainObject(source)) {
-            return utils.merge({}, source)
+            return utils.merge({}, source);
           } else if (utils.isArray(source)) {
-            return source.slice()
+            return source.slice();
           }
-          return source
+          return source;
         }
 
         function mergeDeepProperties(prop) {
           if (!utils.isUndefined(config2[prop])) {
-            config[prop] = getMergedValue(config1[prop], config2[prop])
+            config[prop] = getMergedValue(config1[prop], config2[prop]);
           } else if (!utils.isUndefined(config1[prop])) {
-            config[prop] = getMergedValue(undefined, config1[prop])
+            config[prop] = getMergedValue(undefined, config1[prop]);
           }
         }
 
         utils.forEach(valueFromConfig2Keys, function valueFromConfig2(prop) {
           if (!utils.isUndefined(config2[prop])) {
-            config[prop] = getMergedValue(undefined, config2[prop])
+            config[prop] = getMergedValue(undefined, config2[prop]);
           }
-        })
+        });
 
-        utils.forEach(mergeDeepPropertiesKeys, mergeDeepProperties)
+        utils.forEach(mergeDeepPropertiesKeys, mergeDeepProperties);
 
         utils.forEach(defaultToConfig2Keys, function defaultToConfig2(prop) {
           if (!utils.isUndefined(config2[prop])) {
-            config[prop] = getMergedValue(undefined, config2[prop])
+            config[prop] = getMergedValue(undefined, config2[prop]);
           } else if (!utils.isUndefined(config1[prop])) {
-            config[prop] = getMergedValue(undefined, config1[prop])
+            config[prop] = getMergedValue(undefined, config1[prop]);
           }
-        })
+        });
 
         utils.forEach(directMergeKeys, function merge(prop) {
           if (prop in config2) {
-            config[prop] = getMergedValue(config1[prop], config2[prop])
+            config[prop] = getMergedValue(config1[prop], config2[prop]);
           } else if (prop in config1) {
-            config[prop] = getMergedValue(undefined, config1[prop])
+            config[prop] = getMergedValue(undefined, config1[prop]);
           }
-        })
+        });
 
         var axiosKeys = valueFromConfig2Keys
           .concat(mergeDeepPropertiesKeys)
           .concat(defaultToConfig2Keys)
-          .concat(directMergeKeys)
+          .concat(directMergeKeys);
 
         var otherKeys = Object.keys(config1)
           .concat(Object.keys(config2))
           .filter(function filterAxiosKeys(key) {
-            return axiosKeys.indexOf(key) === -1
-          })
+            return axiosKeys.indexOf(key) === -1;
+          });
 
-        utils.forEach(otherKeys, mergeDeepProperties)
+        utils.forEach(otherKeys, mergeDeepProperties);
 
-        return config
-      }
+        return config;
+      };
 
       /***/
     },
 
     /***/ 826: /***/ function (module) {
-      'use strict'
+      'use strict';
 
       /**
        * A `Cancel` is an object that is thrown when an operation is canceled.
@@ -3887,90 +4156,90 @@ module.exports = /******/ (function (modules, runtime) {
        * @param {string=} message The message.
        */
       function Cancel(message) {
-        this.message = message
+        this.message = message;
       }
 
       Cancel.prototype.toString = function toString() {
-        return 'Cancel' + (this.message ? ': ' + this.message : '')
-      }
+        return 'Cancel' + (this.message ? ': ' + this.message : '');
+      };
 
-      Cancel.prototype.__CANCEL__ = true
+      Cancel.prototype.__CANCEL__ = true;
 
-      module.exports = Cancel
+      module.exports = Cancel;
 
       /***/
     },
 
     /***/ 835: /***/ function (module) {
-      module.exports = require('url')
+      module.exports = require('url');
 
       /***/
     },
 
     /***/ 864: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var utils = __webpack_require__(35)
+      var utils = __webpack_require__(35);
 
       module.exports = utils.isStandardBrowserEnv()
         ? // Standard browser envs support document.cookie
           (function standardBrowserEnv() {
             return {
               write: function write(name, value, expires, path, domain, secure) {
-                var cookie = []
-                cookie.push(name + '=' + encodeURIComponent(value))
+                var cookie = [];
+                cookie.push(name + '=' + encodeURIComponent(value));
 
                 if (utils.isNumber(expires)) {
-                  cookie.push('expires=' + new Date(expires).toGMTString())
+                  cookie.push('expires=' + new Date(expires).toGMTString());
                 }
 
                 if (utils.isString(path)) {
-                  cookie.push('path=' + path)
+                  cookie.push('path=' + path);
                 }
 
                 if (utils.isString(domain)) {
-                  cookie.push('domain=' + domain)
+                  cookie.push('domain=' + domain);
                 }
 
                 if (secure === true) {
-                  cookie.push('secure')
+                  cookie.push('secure');
                 }
 
-                document.cookie = cookie.join('; ')
+                document.cookie = cookie.join('; ');
               },
 
               read: function read(name) {
-                var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'))
-                return match ? decodeURIComponent(match[3]) : null
+                var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+                return match ? decodeURIComponent(match[3]) : null;
               },
 
               remove: function remove(name) {
-                this.write(name, '', Date.now() - 86400000)
+                this.write(name, '', Date.now() - 86400000);
               },
-            }
+            };
           })()
         : // Non standard browser env (web workers, react-native) lack needed support.
           (function nonStandardBrowserEnv() {
             return {
               write: function write() {},
               read: function read() {
-                return null
+                return null;
               },
               remove: function remove() {},
-            }
-          })()
+            };
+          })();
 
       /***/
     },
 
     /***/ 867: /***/ function (module) {
-      module.exports = require('tty')
+      module.exports = require('tty');
 
       /***/
     },
 
     /***/ 879: /***/ function (module) {
-      'use strict'
+      'use strict';
 
       /**
        * Syntactic sugar for invoking a function and expanding an array for arguments.
@@ -3994,15 +4263,15 @@ module.exports = /******/ (function (modules, runtime) {
        */
       module.exports = function spread(callback) {
         return function wrap(arr) {
-          return callback.apply(null, arr)
-        }
-      }
+          return callback.apply(null, arr);
+        };
+      };
 
       /***/
     },
 
     /***/ 887: /***/ function (module) {
-      'use strict'
+      'use strict';
 
       /**
        * Creates a new URL by combining the specified URLs
@@ -4014,32 +4283,32 @@ module.exports = /******/ (function (modules, runtime) {
       module.exports = function combineURLs(baseURL, relativeURL) {
         return relativeURL
           ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
-          : baseURL
-      }
+          : baseURL;
+      };
 
       /***/
     },
 
     /***/ 903: /***/ function (module) {
-      module.exports = require('zlib')
+      module.exports = require('zlib');
 
       /***/
     },
 
     /***/ 946: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var utils = __webpack_require__(35)
-      var transformData = __webpack_require__(589)
-      var isCancel = __webpack_require__(732)
-      var defaults = __webpack_require__(529)
+      var utils = __webpack_require__(35);
+      var transformData = __webpack_require__(589);
+      var isCancel = __webpack_require__(732);
+      var defaults = __webpack_require__(529);
 
       /**
        * Throws a `Cancel` if cancellation has been requested.
        */
       function throwIfCancellationRequested(config) {
         if (config.cancelToken) {
-          config.cancelToken.throwIfRequested()
+          config.cancelToken.throwIfRequested();
         }
       }
 
@@ -4050,42 +4319,46 @@ module.exports = /******/ (function (modules, runtime) {
        * @returns {Promise} The Promise to be fulfilled
        */
       module.exports = function dispatchRequest(config) {
-        throwIfCancellationRequested(config)
+        throwIfCancellationRequested(config);
 
         // Ensure headers exist
-        config.headers = config.headers || {}
+        config.headers = config.headers || {};
 
         // Transform request data
-        config.data = transformData(config.data, config.headers, config.transformRequest)
+        config.data = transformData(config.data, config.headers, config.transformRequest);
 
         // Flatten headers
         config.headers = utils.merge(
           config.headers.common || {},
           config.headers[config.method] || {},
           config.headers,
-        )
+        );
 
         utils.forEach(
           ['delete', 'get', 'head', 'post', 'put', 'patch', 'common'],
           function cleanHeaderConfig(method) {
-            delete config.headers[method]
+            delete config.headers[method];
           },
-        )
+        );
 
-        var adapter = config.adapter || defaults.adapter
+        var adapter = config.adapter || defaults.adapter;
 
         return adapter(config).then(
           function onAdapterResolution(response) {
-            throwIfCancellationRequested(config)
+            throwIfCancellationRequested(config);
 
             // Transform response data
-            response.data = transformData(response.data, response.headers, config.transformResponse)
+            response.data = transformData(
+              response.data,
+              response.headers,
+              config.transformResponse,
+            );
 
-            return response
+            return response;
           },
           function onAdapterRejection(reason) {
             if (!isCancel(reason)) {
-              throwIfCancellationRequested(config)
+              throwIfCancellationRequested(config);
 
               // Transform response data
               if (reason && reason.response) {
@@ -4093,23 +4366,23 @@ module.exports = /******/ (function (modules, runtime) {
                   reason.response.data,
                   reason.response.headers,
                   config.transformResponse,
-                )
+                );
               }
             }
 
-            return Promise.reject(reason)
+            return Promise.reject(reason);
           },
-        )
-      }
+        );
+      };
 
       /***/
     },
 
     /***/ 960: /***/ function (module, __unusedexports, __webpack_require__) {
-      'use strict'
+      'use strict';
 
-      var isAbsoluteURL = __webpack_require__(590)
-      var combineURLs = __webpack_require__(887)
+      var isAbsoluteURL = __webpack_require__(590);
+      var combineURLs = __webpack_require__(887);
 
       /**
        * Creates a new URL by combining the baseURL with the requestedURL,
@@ -4122,14 +4395,14 @@ module.exports = /******/ (function (modules, runtime) {
        */
       module.exports = function buildFullPath(baseURL, requestedURL) {
         if (baseURL && !isAbsoluteURL(requestedURL)) {
-          return combineURLs(baseURL, requestedURL)
+          return combineURLs(baseURL, requestedURL);
         }
-        return requestedURL
-      }
+        return requestedURL;
+      };
 
       /***/
     },
 
     /******/
   },
-)
+);
