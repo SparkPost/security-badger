@@ -1,5 +1,10 @@
 const { GITHUB_REPOSITORY } = require('./constants.js');
 
+/**
+ * @description Formats raw JSON response from GitHub GraphQL API to a friendlier format for rendering Slack message blocks
+ * @param {Object} data - JSON response from GitHub GraphQL API. See `src/tests/fixtures` for example structure
+ * @returns {Array} array of Slack message-friendly vulnerability alerts
+ */
 function formatVulnerabilityAlerts(data) {
   const { repository } = data;
 
