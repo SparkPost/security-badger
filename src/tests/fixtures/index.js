@@ -59,4 +59,12 @@ const VULNERABILITY_ALERTS_FIXTURE = {
   },
 };
 
-module.exports = { VULNERABILITY_ALERTS_FIXTURE };
+const VULNERABILITY_ALERTS_EMPTY_FIXTURE = {
+  repository: {
+    vulnerabilityAlerts: {
+      edges: [],
+    },
+  },
+};
+
+module.exports = { VULNERABILITY_ALERTS_FIXTURE, VULNERABILITY_ALERTS_EMPTY_FIXTURE };
