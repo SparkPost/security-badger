@@ -57,7 +57,7 @@ describe('index', () => {
           {
             elements: [
               {
-                text: '*LOW* vulnerability. :rotating_light: Overdue by -269 days.',
+                text: '*LOW* vulnerability. :rotating_light: Overdue by 269 days.',
                 type: 'mrkdwn',
               },
             ],
@@ -75,7 +75,7 @@ describe('index', () => {
           {
             elements: [
               {
-                text: '*MODERATE* vulnerability. :rotating_light: Overdue by -299 days.',
+                text: '*MODERATE* vulnerability. :rotating_light: Overdue by 299 days.',
                 type: 'mrkdwn',
               },
             ],

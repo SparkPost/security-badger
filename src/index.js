@@ -11,8 +11,6 @@ async function main() {
   });
   const vulnerabilityAlerts = formatVulnerabilityAlerts(data);
 
-  console.log('vulnerabilityAlerts', vulnerabilityAlerts);
-
   if (Boolean(vulnerabilityAlerts) && vulnerabilityAlerts.length === 0)
     return console.log('No security vulnerabilities found.');
 
