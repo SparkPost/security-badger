@@ -1,20 +1,20 @@
 const axios = require('axios');
 const { GITHUB_API_URL } = require('../constants');
-const { getSecurityVulnerabilities, postSlackMsg } = require('../api');
+const { getVulnerabilities, postSlackMsg } = require('../api');
 const { securityVulnerabilityQuery } = require('../queries');
 
 describe('api', () => {
-  describe('getSecurityVulnerabilities', () => {
+  describe('getVulnerabilities', () => {
     it('throws an error if no `githubRepo` is passed', () => {
       const result = () =>
-        getSecurityVulnerabilities({ githubRepo: undefined, githubToken: 'my-fake-github-token' });
+        getVulnerabilities({ githubRepo: undefined, githubToken: 'my-fake-github-token' });
 
       expect(result).toThrow('No `githubRepo` supplied - GitHub data cannot be retrieved.');
     });
 
     it('throws an error if no `githubToken` is passed', () => {
       const result = () =>
-        getSecurityVulnerabilities({ githubRepo: 'my/fake/repo', githubToken: undefined });
+        getVulnerabilities({ githubRepo: 'my/fake/repo', githubToken: undefined });
 
       expect(result).toThrow('No `githubToken` supplied - GitHub data cannot be retrieved.');
     });
@@ -23,7 +23,7 @@ describe('api', () => {
       const mockRequest = jest.fn(() => Promise.resolve({}));
       axios.mockImplementation(mockRequest);
 
-      getSecurityVulnerabilities({
+      getVulnerabilities({
         githubRepo: 'sparkpost/2web2ui',
         githubToken: 'fake-token',
       });
@@ -44,7 +44,7 @@ describe('api', () => {
       const mockRequest = jest.fn(() => Promise.resolve({}));
       axios.mockImplementation(mockRequest);
 
-      getSecurityVulnerabilities({
+      getVulnerabilities({
         githubRepo: 'SparkPost/2Web2UI',
         githubToken: 'fake-token',
       });

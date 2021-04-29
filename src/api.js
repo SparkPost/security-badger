@@ -22,7 +22,7 @@ function toQueryFriendly(githubRepo) {
  * @param {string} githubToken - GitHub personal access token with relevant permissions for requesting data from the [GitHub GraphQL API](https://developer.github.com/v4/guides/forming-calls/#authenticating-with-graphql)
  * @returns {Promise}
  */
-function getSecurityVulnerabilities({ githubRepo, githubToken }) {
+function getVulnerabilities({ githubRepo, githubToken }) {
   if (!githubRepo) throw new Error('No `githubRepo` supplied - GitHub data cannot be retrieved.');
 
   if (!githubToken) throw new Error('No `githubToken` supplied - GitHub data cannot be retrieved.');
@@ -69,6 +69,6 @@ function postSlackMsg({ text, blocks, slackChannel, slackWebhookUrl }) {
 }
 
 module.exports = {
-  getSecurityVulnerabilities,
+  getVulnerabilities,
   postSlackMsg,
 };

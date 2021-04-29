@@ -1,5 +1,5 @@
 const { main } = require('../index');
-const { getSecurityVulnerabilities, postSlackMsg } = require('../api');
+const { getVulnerabilities, postSlackMsg } = require('../api');
 const { VULNERABILITY_ALERTS_FIXTURE, VULNERABILITY_ALERTS_EMPTY_FIXTURE } = require('./fixtures');
 jest.mock('../constants');
 jest.mock('../api');
@@ -12,7 +12,7 @@ describe('index', () => {
         Promise.resolve({ data: VULNERABILITY_ALERTS_EMPTY_FIXTURE }),
       );
       const slackReq = jest.fn(() => Promise.resolve({}));
-      getSecurityVulnerabilities.mockImplementation(mockGitHubReq);
+      getVulnerabilities.mockImplementation(mockGitHubReq);
       postSlackMsg.mockImplementation(slackReq);
 
       await main();
@@ -28,7 +28,7 @@ describe('index', () => {
     it('posts vulnerability alerts to Slack', async () => {
       const mockGitHubReq = jest.fn(() => Promise.resolve({ data: VULNERABILITY_ALERTS_FIXTURE }));
       const slackReq = jest.fn(() => Promise.resolve({}));
-      getSecurityVulnerabilities.mockImplementation(mockGitHubReq);
+      getVulnerabilities.mockImplementation(mockGitHubReq);
       postSlackMsg.mockImplementation(slackReq);
 
       await main();

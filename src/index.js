@@ -1,11 +1,11 @@
-const { getSecurityVulnerabilities, postSlackMsg } = require('./api.js');
+const { getVulnerabilities, postSlackMsg } = require('./api.js');
 const { formatVulnerabilityAlerts, getIntroMsg } = require('./helpers.js');
 
 // Allows for consumption of .env files
 require('dotenv').config();
 
 async function main() {
-  const { data } = await getSecurityVulnerabilities({
+  const { data } = await getVulnerabilities({
     githubRepo: process.env.GITHUB_REPOSITORY,
     githubToken: process.env.GITHUB_TOKEN,
   });
