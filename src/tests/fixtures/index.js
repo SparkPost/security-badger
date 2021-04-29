@@ -4,6 +4,7 @@ const VULNERABILITY_ALERTS_FIXTURE = {
       edges: [
         {
           node: {
+            createdAt: '2020-04-03T21:48:32Z',
             securityAdvisory: {
               permalink: 'https://github.com/advisories/GHSA-vh95-rmgr-6w4m',
               summary: 'Prototype Pollution in minimist',
@@ -34,6 +35,7 @@ const VULNERABILITY_ALERTS_FIXTURE = {
         },
         {
           node: {
+            createdAt: '2020-04-03T21:48:32Z',
             securityAdvisory: {
               permalink: 'https://github.com/advisories/GHSA-5q6m-3h65-w53x',
               summary: 'Improper Neutralization of Special Elements used in an OS Command.',

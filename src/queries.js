@@ -11,6 +11,7 @@ function securityVulnerabilityQuery({ owner, name }) {
       vulnerabilityAlerts(first: 99) {
         edges {
           node {
+            createdAt
             securityAdvisory {
               permalink
               summary

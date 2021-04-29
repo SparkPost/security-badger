@@ -1,7 +1,6 @@
 const { main } = require('../index');
 const { getVulnerabilities, postSlackMsg } = require('../api');
 const { VULNERABILITY_ALERTS_FIXTURE, VULNERABILITY_ALERTS_EMPTY_FIXTURE } = require('./fixtures');
-jest.mock('../constants');
 jest.mock('../api');
 
 describe('index', () => {
@@ -50,7 +49,7 @@ describe('index', () => {
           {
             text: {
               text:
-                '*<https://github.com/advisories/GHSA-vh95-rmgr-6w4m|:rotating_light: Prototype Pollution in minimist>*',
+                '*<https://github.com/advisories/GHSA-vh95-rmgr-6w4m|Prototype Pollution in minimist>*',
               type: 'mrkdwn',
             },
             type: 'section',
@@ -58,7 +57,7 @@ describe('index', () => {
           {
             elements: [
               {
-                text: '*LOW* severity vulnerability within version range >= 1.0.0, < 1.2.3.',
+                text: '*LOW* vulnerability. :rotating_light: Overdue by -269 days.',
                 type: 'mrkdwn',
               },
             ],
@@ -68,7 +67,7 @@ describe('index', () => {
           {
             text: {
               text:
-                '*<https://github.com/advisories/GHSA-5q6m-3h65-w53x|:rotating_light: Improper Neutralization of Special Elements used in an OS Command.>*',
+                '*<https://github.com/advisories/GHSA-5q6m-3h65-w53x|Improper Neutralization of Special Elements used in an OS Command.>*',
               type: 'mrkdwn',
             },
             type: 'section',
@@ -76,7 +75,7 @@ describe('index', () => {
           {
             elements: [
               {
-                text: '*MODERATE* severity vulnerability within version range >= 0.4.0, < 11.0.4.',
+                text: '*MODERATE* vulnerability. :rotating_light: Overdue by -299 days.',
                 type: 'mrkdwn',
               },
             ],

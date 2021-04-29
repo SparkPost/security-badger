@@ -1,5 +1,5 @@
 const { getVulnerabilities, postSlackMsg } = require('./api.js');
-const { formatVulnerabilityAlerts, getIntroMsg } = require('./helpers.js');
+const { formatVulnerabilityAlerts, getDueInMsg, getIntroMsg } = require('./helpers.js');
 
 // Allows for consumption of .env files
 require('dotenv').config();
@@ -10,6 +10,8 @@ async function main() {
     githubToken: process.env.GITHUB_TOKEN,
   });
   const vulnerabilityAlerts = formatVulnerabilityAlerts(data);
+
+  console.log('vulnerabilityAlerts', vulnerabilityAlerts);
 
   if (Boolean(vulnerabilityAlerts) && vulnerabilityAlerts.length === 0)
     return console.log('No security vulnerabilities found.');
@@ -32,13 +34,7 @@ async function main() {
       },
       ...[].concat(
         ...vulnerabilityAlerts.map((alert) => {
-          const { permalink, summary, severity, versionRange } = alert;
-          const summaryContent = permalink
-            ? `*<${permalink}|:rotating_light: ${summary}>*`
-            : `*:rotating_light: ${summary}*`;
-          const contextContent = versionRange
-            ? `*${severity}* severity vulnerability within version range ${versionRange}.`
-            : `*${severity}* vulnerability.`;
+          const { dueInDays, permalink, summary, severity } = alert;
 
           return [
             {
@@ -48,7 +44,7 @@ async function main() {
               type: 'section',
               text: {
                 type: 'mrkdwn',
-                text: summaryContent,
+                text: permalink ? `*<${permalink}|${summary}>*` : `*${summary}*`,
               },
             },
             {
@@ -56,7 +52,7 @@ async function main() {
               elements: [
                 {
                   type: 'mrkdwn',
-                  text: contextContent,
+                  text: `*${severity}* vulnerability. ${getDueInMsg(dueInDays)}`,
                 },
               ],
             },
