@@ -1,4 +1,4 @@
-const { formatVulnerabilityAlerts, getIntroMsg } = require('../helpers');
+const { formatVulnerabilityAlerts, getDueInDays, getDueInMsg, getIntroMsg } = require('../helpers');
 const { VULNERABILITY_ALERTS_FIXTURE } = require('./fixtures');
 
 describe('helpers', () => {
@@ -14,6 +14,7 @@ describe('helpers', () => {
 
       expect(result).toEqual([
         {
+          dueInDays: -269,
           permalink: 'https://github.com/advisories/GHSA-vh95-rmgr-6w4m',
           summary: 'Prototype Pollution in minimist',
           severity: 'LOW',
@@ -21,6 +22,7 @@ describe('helpers', () => {
           versionRange: '>= 1.0.0, < 1.2.3',
         },
         {
+          dueInDays: -299,
           permalink: 'https://github.com/advisories/GHSA-5q6m-3h65-w53x',
           summary: 'Improper Neutralization of Special Elements used in an OS Command.',
           severity: 'MODERATE',
@@ -52,6 +54,42 @@ describe('helpers', () => {
       expect(result).toBe(
         'There is 1 security vulnerability that needs to be addressed for the repo *SparkPost/2web2ui*.',
       );
+    });
+  });
+
+  describe('getDueInDays', () => {
+    it('returns the remaining days before a deadline for a security remediation', () => {
+      const result = getDueInDays({
+        currentDate: new Date('March 3, 2020 00:00:00'),
+        createdAt: '2020-01-03T21:48:32Z',
+        severity: 'LOW',
+      });
+
+      expect(result).toBe(30);
+    });
+
+    it('returns a negative number of days when the deadline has passed', () => {
+      const result = getDueInDays({
+        currentDate: new Date('March 3, 2021 00:00:00'),
+        createdAt: '2020-12-01T21:48:32Z',
+        severity: 'LOW',
+      });
+
+      expect(result).toBe(-1);
+    });
+  });
+
+  describe('getDueInMsg', () => {
+    it('returns an appropriate message when a remediation is overdue', () => {
+      const result = getDueInMsg(-45);
+
+      expect(result).toBe(':rotating_light: Overdue by 45 days.');
+    });
+
+    it('returns an appropriate message when a remediation is not yet due', () => {
+      const result = getDueInMsg(45);
+
+      expect(result).toBe('Due in 45 days.');
     });
   });
 });
