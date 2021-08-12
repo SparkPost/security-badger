@@ -15,14 +15,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nicklemmon/security-badger.git"
+    "url": "git+https://github.com/sparkpost/security-badger.git"
   },
   "author": "Nick Lemmon",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nicklemmon/security-badger/issues"
-  },
-  "homepage": "https://github.com/nicklemmon/security-badger#readme",
+  "homepage": "https://github.com/sparkpost/security-badger#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "date-fns": "^2.21.1",
